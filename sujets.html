@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Sujets du projet BI</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: dossier de cadrage en une colonne — en-tête, exigences du sujet, hypothèses, calendrier à l'échelle, comparatif, puis un dossier par sujet (frise de soutenance + tableau de charges). */
+:root {
+  --bg: #F5F6F9;
+  --surface: #FFFFFF;
+  --ink: #161A2B;
+  --muted: #586079;
+  --line: #DADFEA;
+  --accent: #2B45A3;
+  --accent-soft: #E7EBF8;
+  --seg-real: #2B45A3;
+  --seg-red: #8C9DDA;
+  --seg-sout: #C28A12;
+  --hatch: #E9EBF1;
+  --ok: #1D7349; --ok-soft: #E3F2EA;
+  --warn: #8F5B00; --warn-soft: #FBF0DA;
+  --bad: #A8261E; --bad-soft: #FBE5E3;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1120; --surface: #161A2D; --ink: #E6E9F3; --muted: #9AA2BC; --line: #2A3150;
+    --accent: #93A6F2; --accent-soft: #1E2752;
+    --seg-real: #93A6F2; --seg-red: #4E61AE; --seg-sout: #DDB04A; --hatch: #1C2136;
+    --ok: #63C795; --ok-soft: #13301F; --warn: #E7AE45; --warn-soft: #33260C; --bad: #F2847A; --bad-soft: #3A1715;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1120; --surface: #161A2D; --ink: #E6E9F3; --muted: #9AA2BC; --line: #2A3150;
+  --accent: #93A6F2; --accent-soft: #1E2752;
+  --seg-real: #93A6F2; --seg-red: #4E61AE; --seg-sout: #DDB04A; --hatch: #1C2136;
+  --ok: #63C795; --ok-soft: #13301F; --warn: #E7AE45; --warn-soft: #33260C; --bad: #F2847A; --bad-soft: #3A1715;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-block: 0 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; font-weight: 700; }
+h2 { font-size: 1.55rem; line-height: 1.2; font-weight: 700; }
+h3 { font-size: 1.1rem; font-weight: 600; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+
+/* Masthead */
+.masthead { display: grid; gap: 14px; padding-block: 40px 28px; border-bottom: 1px solid var(--line); }
+.lede { font-size: 1.08rem; color: var(--muted); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; font-size: 0.88rem; color: var(--muted); }
+.stamp {
+  font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase;
+  border: 1.5px solid var(--warn); color: var(--warn); background: var(--warn-soft);
+  padding: 3px 9px; border-radius: 4px;
+}
+
+/* Sticky nav */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.nav-inner { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; justify-content: space-between; padding-block: 10px; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 0.9rem; }
+.nav-links a { color: var(--ink); text-decoration: none; }
+.nav-links a:hover { color: var(--accent); }
+.unit { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.unit button {
+  font: 500 0.82rem var(--f-mono); padding: 5px 10px; border: 0; background: transparent; color: var(--muted); cursor: pointer;
+}
+.unit button[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
+
+section { padding-top: 44px; display: grid; gap: 18px; scroll-margin-top: 64px; }
+.section-head { display: grid; gap: 6px; }
+
+/* Status callout */
+.status { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.status-box { border-radius: 8px; padding: 16px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.status-box.ok { border: 1px solid var(--ok); background: var(--ok-soft); }
+.status-box.ok h3 { color: var(--ok); }
+.status-box.pending { border: 1px solid var(--warn); background: var(--warn-soft); }
+.status-box.pending h3 { color: var(--warn); }
+.status-box ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; font-size: 0.92rem; }
+
+/* Facts */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.fact { background: var(--surface); padding: 14px 16px; display: grid; gap: 2px; min-width: 0; align-content: start; }
+.fact b { font-family: var(--f-display); font-size: 1.35rem; font-weight: 700; }
+.fact span { color: var(--muted); font-size: 0.88rem; }
+
+.hyp { display: grid; gap: 8px; padding-left: 1.1em; margin: 0; }
+.hyp li { max-width: 72ch; }
+.hyp li::marker { color: var(--accent); }
+
+/* Tables */
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 500; white-space: nowrap; background: var(--bg); }
+tbody tr:last-child td { border-bottom: 0; }
+td.n, th.n { text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+tfoot td { font-weight: 600; border-top: 2px solid var(--ink); border-bottom: 0; background: var(--bg); }
+.compare { min-width: 820px; }
+.compare td:first-child { min-width: 190px; }
+.req { min-width: 640px; }
+.req td:first-child { width: 48%; }
+.wp-table { min-width: 860px; }
+.ms-table { min-width: 560px; }
+.wp-name { font-weight: 600; display: block; }
+.wp-code { font-family: var(--f-mono); font-size: 0.78rem; color: var(--accent); margin-right: 6px; }
+.wp-desc { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 2px; max-width: 48ch; }
+.wp-pres { display: block; font-size: 0.85rem; margin-top: 4px; max-width: 48ch; }
+.wp-pres i { color: var(--muted); font-style: normal; font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; margin-right: 4px; }
+
+/* Stacked bar */
+.bar { display: flex; height: 10px; border-radius: 3px; overflow: hidden; background: var(--bg); min-width: 120px; margin-top: 6px; }
+.bar span { display: block; height: 100%; }
+.s-real { background: var(--seg-real); }
+.s-red { background: var(--seg-red); }
+.s-sout { background: var(--seg-sout); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.82rem; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+/* Pills */
+.pill { display: inline-block; font-family: var(--f-mono); font-size: 0.75rem; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.p-ok { color: var(--ok); background: var(--ok-soft); }
+.p-warn { color: var(--warn); background: var(--warn-soft); }
+.p-bad { color: var(--bad); background: var(--bad-soft); }
+
+/* Gantt */
+.gantt-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.gantt { position: relative; min-width: 760px; padding: 10px 12px 12px; display: grid; grid-template-columns: 170px 1fr; row-gap: 6px; }
+.g-label { font-size: 0.85rem; align-self: center; padding-right: 10px; min-width: 0; }
+.g-label small { display: block; font-family: var(--f-mono); font-size: 0.7rem; color: var(--muted); }
+.g-track { position: relative; height: 26px; }
+.g-bar { position: absolute; top: 5px; height: 16px; border-radius: 3px; background: var(--seg-real); }
+.g-bar.soft { background: var(--seg-red); }
+.g-bar.sout { background: var(--seg-sout); }
+.g-holiday { position: absolute; top: 0; bottom: 0; background: repeating-linear-gradient(135deg, var(--hatch) 0 6px, transparent 6px 12px); border-left: 1px dashed var(--line); border-right: 1px dashed var(--line); }
+.g-weeks { position: relative; height: 18px; font-family: var(--f-mono); font-size: 0.68rem; color: var(--muted); }
+.g-weeks span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+.g-ms { position: absolute; top: 5px; width: 14px; height: 14px; transform: translateX(-50%) rotate(45deg); background: var(--ink); border: 2px solid var(--surface); }
+.g-ms.final { background: var(--bad); }
+.g-ms-label { position: absolute; top: 0; transform: translateX(-50%); font-family: var(--f-mono); font-size: 0.68rem; color: var(--muted); }
+.g-grid { position: absolute; top: 0; bottom: 0; border-left: 1px solid var(--line); }
+
+/* Subject dossier */
+.dossier { border-top: 3px solid var(--ink); padding-top: 22px; display: grid; gap: 22px; }
+.dossier-head { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; align-items: start; }
+.letter {
+  font-family: var(--f-display); font-weight: 700; font-size: 3.2rem; line-height: 0.9; color: var(--accent);
+  grid-row: span 2;
+}
+.dossier-head h2 { align-self: end; }
+.dossier-head .q { color: var(--muted); font-size: 1.02rem; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; grid-column: 2; }
+.spec { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 24px; margin: 0; }
+.spec div { display: grid; gap: 3px; min-width: 0; align-content: start; }
+.spec dt { font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.spec dd { margin: 0; font-size: 0.93rem; }
+
+/* Timeline */
+.timeline-box { display: grid; gap: 8px; }
+.timeline-scroll { overflow-x: auto; }
+.timeline { display: flex; gap: 3px; min-width: 640px; }
+.slot {
+  flex: 1 1 0; min-width: 0; border-radius: 4px; padding: 8px 6px; text-align: center;
+  background: var(--accent-soft); color: var(--ink); border: 1px solid var(--line);
+}
+.slot b { display: block; font-family: var(--f-mono); font-size: 0.78rem; font-weight: 500; }
+.slot span { display: block; font-size: 0.72rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.slot.global { background: var(--accent); border-color: var(--accent); }
+.slot.global b, .slot.global span { color: var(--bg); }
+.ticks { display: flex; justify-content: space-between; min-width: 640px; font-family: var(--f-mono); font-size: 0.72rem; color: var(--muted); }
+
+.watch { display: grid; gap: 6px; padding-left: 1.1em; margin: 0; }
+.watch li::marker { color: var(--bad); }
+
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.rule { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.rule p { font-size: 0.92rem; color: var(--muted); }
+
+.cp { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.cp ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+@media (max-width: 720px) { .cp { grid-template-columns: 1fr; } }
+
+.steps { counter-reset: s; display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 2.2em 1fr; gap: 10px; align-items: baseline; }
+.steps li::before { content: counter(s); font-family: var(--f-mono); color: var(--accent); font-weight: 500; }
+.steps li span { color: var(--muted); font-size: 0.92rem; display: block; }
+
+.questions { display: grid; gap: 8px; padding-left: 1.1em; margin: 0; }
+
+footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); display: grid; gap: 8px; }
+footer ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+@media (max-width: 560px) {
+  .letter { font-size: 2.4rem; }
+  .badges { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<style>
+:root { color-scheme: light; }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="eyebrow">Projet BI 2026-2027 · MIAGE ACSI et SID · Pr K. Smaïli</div>
+    <h1>Les trois sujets du projet BI</h1>
+    <p class="lede">Les trois sujets proposés au vote, avec pour chacun le découpage en work packages, la soutenance et les charges prévisionnelles. Le calendrier et les exigences du sujet officiel sont communs aux trois.</p>
+    <div class="meta">
+      <span>Proposé par Baptiste, chef de projet</span>
+      <span class="mono">Mis à jour le 16/10/2026</span>
+      <a href="index.html">Cadrage du sujet en tête</a>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Sommaire">
+    <div class="nav-inner">
+      <div class="nav-links">
+        <a href="#cadre">Cadre</a>
+        <a href="#calendrier">Calendrier</a>
+        <a href="#comparatif">Comparatif</a>
+        <a href="#sujet-a">A · Accidents</a>
+        <a href="#sujet-b">B · DPE</a>
+        <a href="#sujet-c">C · Streaming</a>
+        <a href="#regles">Règles</a>
+        <a href="#suite">Suite</a>
+      </div>
+      <div class="unit" role="group" aria-label="Unité des charges">
+        <button type="button" id="unit-jh" aria-pressed="true">j/h</button>
+        <button type="button" id="unit-h" aria-pressed="false">heures</button>
+      </div>
+    </div>
+  </nav>
+
+  <section id="cadre">
+    <div class="status">
+      <div class="status-box ok">
+        <h3>Ce qui est fixé</h3>
+        <ul>
+          <li>Un rapport unique pour ACSI et SID, en anglais, 50 pages minimum</li>
+          <li>Jeu de données de 50 000 enregistrements minimum</li>
+          <li>K-means, arbres de décision et K-NN, appliqués et comparés</li>
+          <li>Organigramme et diagramme de Gantt obligatoires</li>
+          <li>Soutenance en anglais le 7 janvier 2027</li>
+        </ul>
+      </div>
+      <div class="status-box pending">
+        <h3>Encore à confirmer</h3>
+        <ul>
+          <li><b>Le choix du sujet</b> : vote par réaction sur Discord, ouvert jusqu'au dimanche 18 octobre au soir</li>
+          <li>Le format de soutenance : 20 min globales, puis 20 min par WP</li>
+          <li>L'outil de suivi GestionBi, en cours de finalisation. En attendant, notez vos heures quelque part : elles seront importées.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <div class="eyebrow">Le cadre</div>
+      <h2>Ce qu'on sait du projet</h2>
+    </div>
+    <div class="facts">
+      <div class="fact"><b class="mono">57</b><span>étudiants : 41 ACSI et 16 SID</span></div>
+      <div class="fact"><b class="mono">≥ 50 000</b><span>enregistrements dans le jeu de données</span></div>
+      <div class="fact"><b class="mono">≥ 50 p.</b><span>de rapport en anglais. Cible proposée : 80 pages</span></div>
+      <div class="fact"><b class="mono">3</b><span>méthodes à comparer : K-means, arbres, K-NN</span></div>
+      <div class="fact"><b class="mono">07/01/2027</b><span>soutenance, au dernier cours commun ACSI-SID</span></div>
+    </div>
+
+    <h3>Exigences du sujet et qui les porte</h3>
+    <div class="table-scroll">
+      <table class="req">
+        <thead><tr><th>Exigence du sujet</th><th>Porté par</th></tr></thead>
+        <tbody>
+          <tr><td>Organigramme détaillé : rôles, fonctions et responsabilités de chacun</td><td>WP0 · chef de projet</td></tr>
+          <tr><td>Diagramme de Gantt avec étapes, jalons et livrables</td><td>WP0 · chef de projet et adjoint PMO</td></tr>
+          <tr><td>Chaîne complète, de la collecte des données à la décision</td><td>WP1 à WP4, dans l'ordre</td></tr>
+          <tr><td>Jeu de données d'au moins 50 000 enregistrements</td><td>WP2 · Données & qualité</td></tr>
+          <tr><td>Plusieurs tableaux de bord adaptés aux besoins identifiés</td><td>WP1 (besoins) puis WP4 (tableaux de bord)</td></tr>
+          <tr><td>Entrepôt de données en étoile</td><td>WP3 (WP4 pour le sujet B)</td></tr>
+          <tr><td>K-means, arbres de décision, K-NN, et leur comparaison</td><td>Un WP par méthode ; la comparaison est portée par le WP K-NN</td></tr>
+          <tr><td>Rapport unique d'au moins 50 pages en anglais</td><td>Tous les WP, coordonnés par la cellule de rédaction de WP0</td></tr>
+          <tr><td>Soutenance en anglais devant tous les intervenants</td><td>Chef de projet (présentation globale) et chaque WP</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Hypothèses de charge</h3>
+    <ul class="hyp">
+      <li><b>1 j/h = 7 heures</b> de travail d'une personne. Le bouton en haut convertit tous les chiffres en heures.</li>
+      <li>Du 14 octobre au 7 janvier, il y a 12 semaines, dont environ 2 de vacances de fin d'année : il reste environ <b>10 semaines utiles</b>. À une demi-journée par semaine, chacun dispose d'environ <b class="mono">5 j/h</b>, soit une capacité de <b class="mono" data-jh="285"></b> pour la promo.</li>
+      <li>Rédaction : environ <b>0,4 j/h par page</b> d'anglais finalisée, pour une cible de <b>80 pages</b>, au-dessus du minimum de 50.</li>
+      <li>Préparation de soutenance : <b>4 j/h par WP</b>, 6 pour le pilotage qui porte aussi la présentation globale.</li>
+      <li>Les chiffres sont volontairement ronds. Ils seront affinés avec les chefs de WP une fois le sujet choisi.</li>
+    </ul>
+  </section>
+
+  <section id="calendrier">
+    <div class="section-head">
+      <div class="eyebrow">Calendrier indicatif</div>
+      <h2>Du lancement au 7 janvier</h2>
+      <p class="muted">Première version des étapes et des jalons, la même pour les trois sujets. Le Gantt officiel, détaillé par WP, sera publié le vendredi 23 octobre.</p>
+    </div>
+    <div class="gantt-scroll"><div class="gantt" id="gantt"></div></div>
+    <div class="legend">
+      <span><i class="s-real"></i>Réalisation</span>
+      <span><i class="s-red"></i>Rédaction</span>
+      <span><i class="s-sout"></i>Soutenance</span>
+      <span><i style="background:repeating-linear-gradient(135deg,var(--muted) 0 2px,transparent 2px 4px)"></i>Vacances de fin d'année (à ajuster)</span>
+      <span><i style="background:var(--ink);transform:rotate(45deg) scale(.8)"></i>Jalon</span>
+    </div>
+    <div class="table-scroll">
+      <table class="ms-table">
+        <thead><tr><th>Jalon</th><th>Date</th><th>Livrable</th></tr></thead>
+        <tbody id="ms-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <section id="comparatif">
+    <div class="section-head">
+      <div class="eyebrow">Comparatif</div>
+      <h2>Les trois sujets en un coup d'œil</h2>
+    </div>
+    <div class="table-scroll">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Sujet</th>
+            <th>Faisabilité</th>
+            <th>Risque</th>
+            <th class="n">WP</th>
+            <th class="n">Soutenance</th>
+            <th class="n">Charge</th>
+            <th class="n">Marge</th>
+            <th>Chemin critique</th>
+          </tr>
+        </thead>
+        <tbody id="compare-body"></tbody>
+      </table>
+    </div>
+    <p class="legend">Marge = capacité estimée (<span class="mono" data-jh="285"></span>) moins charge prévue. Une marge proche de zéro veut dire que le moindre retard oblige à réduire le périmètre.</p>
+  </section>
+
+  <div id="dossiers"></div>
+
+  <section id="regles">
+    <div class="section-head">
+      <div class="eyebrow">Pour tous les sujets</div>
+      <h2>Règles communes</h2>
+    </div>
+    <div class="rules">
+      <div class="rule">
+        <h3>Un protocole commun pour le data mining</h3>
+        <p>K-means n'est pas supervisé, les arbres et K-NN le sont. Les trois chefs de WP fixent dès le départ le même jeu de données, la même cible et les mêmes métriques, pour que la comparaison exigée par le sujet tienne devant le jury.</p>
+      </div>
+      <div class="rule">
+        <h3>ACSI et SID mélangés</h3>
+        <p>Chaque WP compte des étudiants des deux promotions. C'est l'esprit du sujet, et ça répartit les compétences.</p>
+      </div>
+      <div class="rule">
+        <h3>Un gabarit pour chaque passage</h3>
+        <p>Chaque WP construit ses 20 minutes sur le même plan : objectif, démarche, résultat principal, limites, lien avec le WP suivant. Le jury suit le pipeline comme une seule histoire.</p>
+      </div>
+      <div class="rule">
+        <h3>L'ordre suit les données</h3>
+        <p>Présentation globale, puis Business, Données, Entrepôt, Dashboards, K-means, Arbres, K-NN et comparaison. Le pilotage clôture avec le bilan prévu / réel.</p>
+      </div>
+      <div class="rule">
+        <h3>Une cellule de rédaction</h3>
+        <p>Chaque WP désigne un référent rédaction. Le pilotage coordonne la relecture anglaise, le gabarit du rapport et le glossaire commun.</p>
+      </div>
+      <div class="rule">
+        <h3>Chefs de WP choisis sur les compétences</h3>
+        <p>Pas seulement au volontariat. L'entrepôt et le data mining demandent des personnes à l'aise avec le code et SQL. Chacun peut contribuer à plusieurs WP.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="chef-de-projet">
+    <div class="section-head">
+      <div class="eyebrow">Transparence</div>
+      <h2>Le rôle du chef de projet</h2>
+    </div>
+    <div class="cp">
+      <ul>
+        <li>Nommer les chefs de WP et tenir l'organigramme à jour</li>
+        <li>Construire et suivre le Gantt : étapes, jalons, livrables</li>
+        <li>Animer le comité de pilotage avec les chefs de WP</li>
+        <li>Arbitrer entre WP, suivre les risques, faire le lien avec le prof</li>
+        <li>Intégrer le rapport et en garantir la cohérence</li>
+        <li>Rédiger le résumé exécutif, l'introduction et la conclusion</li>
+        <li>Faire la présentation globale de 20 minutes et coordonner les répétitions</li>
+      </ul>
+      <div class="facts" style="grid-template-columns:1fr">
+        <div class="fact"><b class="mono" data-jh="13.5"></b><span>de charge estimée pour le chef de projet, comptés dans WP0. Environ 8 à 9 heures par semaine.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="suite">
+    <div class="section-head">
+      <div class="eyebrow">Suite</div>
+      <h2>Prochaines étapes</h2>
+    </div>
+    <ol class="steps">
+      <li><div>Voter pour le sujet<span>Par réaction sur Discord (🅰️ 🅱️ 🅲), jusqu'au dimanche 18 octobre au soir.</span></div></li>
+      <li><div>Remplir le formulaire de vœux<span>Avant le mardi 20 octobre à 20 h. Le lien est partagé sur Discord.</span></div></li>
+      <li><div>Désigner les chefs de WP et répartir les équipes<span>Mercredi 21 octobre : chefs choisis sur les compétences, puis répartition des membres ACSI et SID selon les vœux et les effectifs prévus.</span></div></li>
+      <li><div>Publier l'organigramme et le Gantt v1<span>Jalon de lancement, vendredi 23 octobre.</span></div></li>
+      <li><div>Ouvrir l'outil de suivi<span>Créer les WP et leurs budgets d'heures dans GestionBi, et commencer la saisie des temps.</span></div></li>
+      <li><div>Affiner les charges<span>Chaque chef de WP découpe son WP en tâches estimées. Les chiffres de ce document servent de point de départ.</span></div></li>
+    </ol>
+
+    <h3>Questions ouvertes, à poser au prof</h3>
+    <ul class="questions">
+      <li>Le format de soutenance (20 min globales, puis 20 min par WP) est-il confirmé ?</li>
+      <li>Chaque étudiant doit-il prendre la parole ? Avec 5 à 8 personnes par WP, ça laisse moins de 3 minutes chacun.</li>
+      <li>Les questions du jury sont-elles comprises dans les 20 minutes de chaque WP ?</li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="eyebrow">Sources des données</div>
+    <ul>
+      <li><a href="https://www.data.gouv.fr/datasets/53698f4ca3a729239d2036df/" target="_blank" rel="noopener noreferrer">Accidents corporels de la circulation 2005-2024 (data.gouv.fr)</a></li>
+      <li><a href="https://www.data.gouv.fr/datasets/dpe-logements-existants-depuis-juillet-2021/" target="_blank" rel="noopener noreferrer">DPE logements existants depuis juillet 2021 (ADEME, data.gouv.fr)</a></li>
+      <li><a href="https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres/" target="_blank" rel="noopener noreferrer">Demandes de valeurs foncières (DGFiP, data.gouv.fr)</a></li>
+      <li><a href="https://grouplens.org/datasets/movielens/32m/" target="_blank" rel="noopener noreferrer">MovieLens 32M (GroupLens)</a></li>
+      <li><a href="https://developer.themoviedb.org/docs/getting-started" target="_blank" rel="noopener noreferrer">API The Movie Database (TMDB)</a></li>
+      <li><a href="https://www.onisr.securite-routiere.gouv.fr/sites/default/files/2025-10/Description%20des%20bases%20de%20donn%C3%A9es%20annuelles%20en-EN.pdf" target="_blank" rel="noopener noreferrer">Description of the annual road accident databases, in English (ONISR)</a></li>
+    </ul>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var CAPACITY = 285;
+  var unit = "jh";
+
+  // [code, nom, personnes, réalisation, rédaction, soutenance, pages, contenu, présenté en soutenance]
+  var WP0_STD = ["WP0", "Pilotage & qualité", 5, 20, 4, 6, 10, "Organigramme, Gantt, comité de pilotage, risques. Adjoint PMO et contrôle des temps, cellule de rédaction, gabarit commun, relecture anglaise.", "Présentation globale, puis bilan prévu / réel"];
+
+  var SUBJECTS = [
+    {
+      id: "sujet-a", letter: "A", name: "Sécurité routière",
+      question: "Quels facteurs aggravent un accident corporel, et où agir en priorité ?",
+      feas: ["★★★", "p-ok"], risk: ["Faible", "p-ok"],
+      critical: "WP2 : harmoniser plusieurs années de fichiers",
+      spec: [
+        ["Décideur", "Préfecture, Sécurité routière ou assureur"],
+        ["Données", "Fichiers BAAC de l'ONISR, 2005 à 2024, 4 fichiers CSV par an (caractéristiques, lieux, véhicules, usagers). Plusieurs années cumulées dépassent largement 50 000 accidents. Documentation officielle en anglais."],
+        ["Data mining", "K-means : profils et zones d'accidents. Arbres et K-NN : prédire la gravité, sur la même cible."]
+      ],
+      wps: [
+        ["WP1", "Business & gouvernance", 6, 16, 4, 4, 10, "Persona préfecture ou assureur, KPIs, besoins des tableaux de bord. RGPD, données masquées, biais.", "Besoin du décideur, KPIs, cadre éthique"],
+        ["WP2", "Données & qualité", 8, 26, 4, 4, 10, "Collecte, harmonisation des formats avant et après 2019, rupture de série 2018, codifications, extrait nettoyé.", "Sources, profilage, nettoyage avant / après"],
+        ["WP3", "ETL & entrepôt", 8, 28, 5, 4, 12, "Schéma en étoile : fait « usager impliqué », dimensions lieu, temps, véhicule, conditions. Enrichissement INSEE.", "Modèle en étoile, pipeline, choix techniques"],
+        ["WP4", "Dashboards", 8, 24, 4, 4, 10, "Plusieurs tableaux de bord Power BI selon les besoins de WP1 : cartes, tendances, storytelling.", "Démo des tableaux de bord"],
+        ["WP5", "K-means", 7, 18, 3, 4, 8, "Profils d'accidents et zones à risque, choix de k (coude, silhouette), interprétation.", "Segments et leur interprétation"],
+        ["WP6", "Arbres de décision", 7, 18, 3, 4, 8, "Prédire la gravité, élagage, classes très déséquilibrées (les tués sont rares), variables déterminantes.", "Modèle, évaluation, facteurs aggravants"],
+        ["WP7", "K-NN & comparaison", 8, 24, 5, 4, 12, "Même cible que les arbres, encodage des variables, échantillonnage, choix de k et de la distance. Chapitre de comparaison des 3 méthodes.", "K-NN, puis comparaison des trois méthodes"],
+        WP0_STD
+      ],
+      watch: [
+        "Harmoniser les formats avant et après 2019 prend du temps. Limiter l'étude à 2019-2024 suffit largement pour dépasser 50 000 enregistrements.",
+        "La classification des blessés hospitalisés depuis 2018 n'est pas comparable aux années précédentes : à documenter, c'est un bon point en soutenance.",
+        "K-NN se comporte mal sur des variables surtout catégorielles et sur des millions de lignes : il faudra encoder et échantillonner."
+      ]
+    },
+    {
+      id: "sujet-b", letter: "B", name: "Passoires thermiques",
+      question: "Un mauvais DPE fait-il baisser le prix d'un logement ?",
+      feas: ["★★☆", "p-warn"], risk: ["Élevé", "p-bad"],
+      critical: "WP3 : apparier DPE et transactions",
+      spec: [
+        ["Décideur", "Banque (prêts verts) ou collectivité (plan de rénovation)"],
+        ["Données", "Base DPE de l'ADEME (depuis juillet 2021, mise à jour mensuelle) et DVF (transactions des 5 dernières années, hors Alsace, Moselle et Mayotte). Des millions de lignes."],
+        ["Data mining", "K-means : typologie des logements et des territoires. Arbres et K-NN : prédire la classe DPE, sur la même cible."]
+      ],
+      wps: [
+        ["WP1", "Business & gouvernance", 5, 14, 3, 4, 8, "Persona banque ou collectivité, calendrier d'interdiction de location des passoires, besoins des tableaux de bord. Qualité des sources, licences, éthique.", "Besoin du décideur, cadre réglementaire"],
+        ["WP2", "Données & qualité", 6, 24, 3, 4, 8, "Volumétrie, valeurs aberrantes DVF, ventes multi-lots, DPE jamais corrigés par l'ADEME.", "Sources, profilage, nettoyage"],
+        ["WP3", "Appariement DPE ↔ DVF", 8, 40, 4, 4, 10, "Croisement par adresse ou géolocalisation, mesure du taux d'appariement, périmètre géographique restreint.", "Méthode d'appariement et sa fiabilité"],
+        ["WP4", "ETL & entrepôt", 6, 22, 3, 4, 8, "Schéma en étoile : fait « transaction », dimensions logement, DPE, commune, temps.", "Modèle en étoile, pipeline"],
+        ["WP5", "Dashboards & décote", 8, 22, 4, 4, 10, "Plusieurs tableaux de bord selon les besoins de WP1 : cartes des prix et des passoires, décote de prix par classe DPE.", "Démo, et combien coûte un mauvais DPE"],
+        ["WP6", "K-means", 7, 16, 3, 4, 7, "Typologie des logements et des territoires, choix de k, interprétation.", "Segments et leur interprétation"],
+        ["WP7", "Arbres de décision", 6, 16, 3, 4, 7, "Prédire la classe DPE, élagage, variables déterminantes.", "Modèle et variables déterminantes"],
+        ["WP8", "K-NN & comparaison", 6, 22, 5, 4, 12, "Même cible que les arbres, variables numériques (surface, année, consommation). Chapitre de comparaison des 3 méthodes.", "K-NN, puis comparaison des trois méthodes"],
+        ["WP0", "Pilotage & qualité", 5, 22, 4, 6, 10, "Organigramme, Gantt, suivi serré du chemin critique, décision go / no-go sur l'appariement le 6 novembre, cellule de rédaction.", "Présentation globale, puis bilan prévu / réel"]
+      ],
+      watch: [
+        "L'appariement bloque tout le reste. Décision go / no-go au jalon du 6 novembre : si le taux est mauvais, on bascule sur un autre sujet tant qu'il est encore temps.",
+        "Restreindre le périmètre dès le départ (quelques départements du Grand Est). La Moselle n'est pas couverte par DVF.",
+        "La marge est la plus faible des trois sujets, et elle suppose que l'appariement fonctionne du premier coup."
+      ]
+    },
+    {
+      id: "sujet-c", letter: "C", name: "Streaming",
+      question: "Quels films une plateforme de streaming devrait-elle acquérir et recommander ?",
+      feas: ["★★★", "p-ok"], risk: ["Moyen", "p-warn"],
+      critical: "WP3 : volumétrie de 32M de notes",
+      spec: [
+        ["Décideur", "Direction des contenus d'une plateforme"],
+        ["Données", "MovieLens 32M (32 millions de notes, 87 585 films, 200 948 utilisateurs) enrichi par l'API TMDB, jointure directe grâce aux identifiants fournis."],
+        ["Data mining", "K-means : segments d'utilisateurs ou familles de films. Arbres et K-NN : prédire si un film sera bien noté. K-NN sert aussi naturellement à la recommandation."]
+      ],
+      wps: [
+        ["WP1", "Business & gouvernance", 6, 16, 4, 4, 10, "Persona direction des contenus, KPIs d'acquisition, besoins des tableaux de bord. Conditions TMDB (attribution, conservation 6 mois max), licence MovieLens, biais de popularité.", "Besoin du décideur, cadre légal et éthique"],
+        ["WP2", "Données & qualité", 8, 26, 4, 4, 10, "Téléchargement MovieLens, script de collecte via l'API TMDB (environ 87k films, casting, mots-clés), stockage, qualité.", "Sources, collecte, nettoyage"],
+        ["WP3", "ETL & entrepôt", 8, 28, 5, 4, 12, "Fait « note » (32M lignes, agrégation ou échantillonnage), tables de liaison film ↔ genre et film ↔ personne.", "Modèle en étoile, gestion du volume"],
+        ["WP4", "Dashboards", 8, 22, 4, 4, 10, "Plusieurs tableaux de bord selon les besoins de WP1 : catalogue, tendances, popularité par genre et par époque.", "Démo des tableaux de bord"],
+        ["WP5", "K-means", 7, 18, 3, 4, 8, "Segments d'utilisateurs ou familles de films, choix de k, interprétation.", "Segments et leur interprétation"],
+        ["WP6", "Arbres de décision", 7, 18, 3, 4, 8, "« Film bien noté ? », élagage, variables déterminantes. Rentabilité en sous-étude, faute de données complètes.", "Modèle, évaluation, limites des données"],
+        ["WP7", "K-NN, recommandation & comparaison", 8, 26, 5, 4, 12, "Même cible que les arbres, puis recommandation par plus proches voisins. Chapitre de comparaison des 3 méthodes.", "K-NN, démo de recommandation, comparaison"],
+        WP0_STD
+      ],
+      watch: [
+        "L'unité d'analyse pour le data mining est le film (environ 87 000, au-dessus des 50 000 exigés), pas la note.",
+        "Budget et recettes sont vides pour la plupart des films : la rentabilité ne peut être qu'une sous-étude, à présenter comme une limite.",
+        "Charger 32 millions de notes dans PostgreSQL et Power BI demande d'agréger ou d'échantillonner dès la modélisation."
+      ]
+    }
+  ];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+  }
+  function totals(s) {
+    var t = { p: 0, r: 0, w: 0, o: 0, pages: 0 };
+    s.wps.forEach(function (w) { t.p += w[2]; t.r += w[3]; t.w += w[4]; t.o += w[5]; t.pages += w[6]; });
+    t.all = t.r + t.w + t.o;
+    return t;
+  }
+  function num(jh) { return '<span data-jh="' + jh + '"></span>'; }
+  function signed(jh) { return '<span data-jh="' + jh + '" data-signed="1"></span>'; }
+  function marginClass(m) { return m < 10 ? (m < 0 ? "p-bad" : "p-warn") : "p-ok"; }
+
+  // Gantt
+  var START = Date.UTC(2026, 9, 12), END = Date.UTC(2027, 0, 11);
+  function d(y, m, day) { return Date.UTC(y, m - 1, day); }
+  function pos(t) { return ((t - START) / (END - START) * 100).toFixed(3) + "%"; }
+  function width(a, b) { return ((b - a) / (END - START) * 100).toFixed(3) + "%"; }
+  var HOLIDAY = [d(2026, 12, 19), d(2027, 1, 4)];
+  var LANES = [
+    ["Lancement", "WP0", [[d(2026, 10, 14), d(2026, 10, 24), ""]]],
+    ["Besoins & KPIs", "WP1", [[d(2026, 10, 19), d(2026, 11, 14), ""]]],
+    ["Collecte & qualité", "WP2", [[d(2026, 10, 19), d(2026, 11, 7), ""]]],
+    ["Entrepôt en étoile", "WP3", [[d(2026, 11, 2), d(2026, 11, 28), ""]]],
+    ["Tableaux de bord", "WP4", [[d(2026, 11, 16), d(2026, 12, 12), ""]]],
+    ["Data mining", "K-means, arbres, K-NN", [[d(2026, 11, 9), d(2026, 12, 12), ""]]],
+    ["Rédaction du rapport", "Tous", [[d(2026, 11, 23), d(2026, 12, 19), "soft"], [d(2027, 1, 4), d(2027, 1, 6), "soft"]]],
+    ["Soutenance", "Tous", [[d(2026, 12, 14), d(2026, 12, 19), "sout"], [d(2027, 1, 4), d(2027, 1, 8), "sout"]]]
+  ];
+  var MILESTONES = [
+    ["M1", d(2026, 10, 23), "ven. 23/10", "Lancement : sujet voté, chefs de WP nommés, organigramme et Gantt v1"],
+    ["M2", d(2026, 11, 6), "ven. 06/11", "Données collectées, extrait nettoyé livré aux WP d'analyse, protocole commun de data mining fixé"],
+    ["M3", d(2026, 11, 27), "ven. 27/11", "Entrepôt en étoile chargé"],
+    ["M4", d(2026, 12, 11), "ven. 11/12", "Tableaux de bord et modèles v1, résultats de la comparaison"],
+    ["M5", d(2026, 12, 18), "ven. 18/12", "Rapport v1 complet, avant les vacances"],
+    ["M6", d(2027, 1, 5), "mar. 05/01", "Rapport final en anglais, répétition générale"],
+    ["M7", d(2027, 1, 7), "jeu. 07/01", "Soutenance et remise du rapport"]
+  ];
+
+  var g = [];
+  var weeks = [], t;
+  for (t = START; t < END; t += 7 * 864e5) {
+    var dt = new Date(t);
+    weeks.push('<span style="left:' + pos(t) + '">' + String(dt.getUTCDate()).padStart(2, "0") + "/" + String(dt.getUTCMonth() + 1).padStart(2, "0") + "</span>");
+  }
+  function gridLines() {
+    var s = "";
+    for (var x = START; x < END; x += 7 * 864e5) s += '<div class="g-grid" style="left:' + pos(x) + '"></div>';
+    return s;
+  }
+  var holiday = '<div class="g-holiday" style="left:' + pos(HOLIDAY[0]) + ";width:" + width(HOLIDAY[0], HOLIDAY[1]) + '"></div>';
+  g.push('<div class="g-label"></div><div class="g-weeks">' + weeks.join("") + "</div>");
+  g.push('<div class="g-label"><b>Jalons</b></div><div class="g-track">' + gridLines() + holiday +
+    MILESTONES.map(function (m, i) {
+      return '<div class="g-ms' + (i === MILESTONES.length - 1 ? " final" : "") + '" style="left:' + pos(m[1] + 864e5 / 2) + '" title="' + esc(m[0] + " · " + m[2] + " · " + m[3]) + '"></div>';
+    }).join("") + "</div>");
+  LANES.forEach(function (l) {
+    g.push('<div class="g-label">' + esc(l[0]) + "<small>" + esc(l[1]) + '</small></div><div class="g-track">' + gridLines() + holiday +
+      l[2].map(function (b) { return '<div class="g-bar ' + b[2] + '" style="left:' + pos(b[0]) + ";width:" + width(b[0], b[1]) + '"></div>'; }).join("") + "</div>");
+  });
+  g.push('<div class="g-label"></div><div class="g-weeks">' + MILESTONES.map(function (m) {
+    return '<span style="left:' + pos(m[1] + 864e5 / 2) + '">' + m[0] + "</span>";
+  }).join("") + "</div>");
+  document.getElementById("gantt").innerHTML = g.join("");
+  document.getElementById("ms-body").innerHTML = MILESTONES.map(function (m) {
+    return '<tr><td class="mono">' + m[0] + '</td><td class="mono" style="white-space:nowrap">' + m[2] + "</td><td>" + esc(m[3]) + "</td></tr>";
+  }).join("");
+
+  // Comparatif
+  document.getElementById("compare-body").innerHTML = SUBJECTS.map(function (s) {
+    var tt = totals(s), margin = CAPACITY - tt.all, mins = 20 + 20 * s.wps.length;
+    return "<tr>" +
+      '<td><a href="#' + s.id + '"><b>' + s.letter + " · " + esc(s.name) + '</b></a><br><span class="muted" style="font-size:.85rem">' + esc(s.question) + "</span></td>" +
+      '<td><span class="pill ' + s.feas[1] + '">' + s.feas[0] + "</span></td>" +
+      '<td><span class="pill ' + s.risk[1] + '">' + s.risk[0] + "</span></td>" +
+      '<td class="n">' + s.wps.length + "</td>" +
+      '<td class="n">' + mins + " min</td>" +
+      '<td class="n">' + num(tt.all) + "</td>" +
+      '<td class="n"><span class="pill ' + marginClass(margin) + '">' + signed(margin) + "</span></td>" +
+      "<td>" + esc(s.critical) + "</td>" +
+      "</tr>";
+  }).join("");
+
+  // Dossiers
+  var maxTotal = 0;
+  SUBJECTS.forEach(function (s) { s.wps.forEach(function (w) { maxTotal = Math.max(maxTotal, w[3] + w[4] + w[5]); }); });
+
+  document.getElementById("dossiers").innerHTML = SUBJECTS.map(function (s) {
+    var tt = totals(s), mins = 20 + 20 * s.wps.length, margin = CAPACITY - tt.all;
+    var slots = '<div class="slot global"><b>Global</b><span>Présentation</span></div>' +
+      s.wps.map(function (w) { return '<div class="slot"><b>' + w[0] + "</b><span>" + esc(w[1]) + "</span></div>"; }).join("");
+    var ticks = [];
+    for (var m = 0; m <= mins; m += 20) ticks.push("<span>" + m + "</span>");
+    var pct = function (v) { return (v / maxTotal * 100).toFixed(2) + "%"; };
+
+    var rows = s.wps.map(function (w) {
+      var tot = w[3] + w[4] + w[5];
+      return "<tr>" +
+        '<td><span class="wp-name"><span class="wp-code">' + w[0] + "</span>" + esc(w[1]) + "</span>" +
+        '<span class="wp-desc">' + esc(w[7]) + "</span>" +
+        '<span class="wp-pres"><i>En soutenance</i>' + esc(w[8]) + "</span></td>" +
+        '<td class="n">' + w[2] + "</td>" +
+        '<td class="n">' + num(w[3]) + "</td>" +
+        '<td class="n">' + num(w[4]) + "</td>" +
+        '<td class="n">' + num(w[5]) + "</td>" +
+        '<td class="n"><b>' + num(tot) + '</b><div class="bar" aria-hidden="true">' +
+          '<span class="s-real" style="width:' + pct(w[3]) + '"></span>' +
+          '<span class="s-red" style="width:' + pct(w[4]) + '"></span>' +
+          '<span class="s-sout" style="width:' + pct(w[5]) + '"></span></div></td>' +
+        '<td class="n">' + w[6] + "</td>" +
+        "</tr>";
+    }).join("");
+
+    return '<section id="' + s.id + '"><article class="dossier">' +
+      '<div class="dossier-head"><div class="letter" aria-hidden="true">' + s.letter + "</div>" +
+        "<h2>Sujet " + s.letter + " · " + esc(s.name) + "</h2>" +
+        '<p class="q">' + esc(s.question) + "</p>" +
+        '<div class="badges"><span class="pill ' + s.feas[1] + '">Faisabilité ' + s.feas[0] + "</span>" +
+        '<span class="pill ' + s.risk[1] + '">Risque ' + s.risk[0].toLowerCase() + "</span>" +
+        '<span class="pill ' + marginClass(margin) + '">Marge ' + signed(margin) + "</span></div></div>" +
+      '<dl class="spec">' + s.spec.map(function (p) { return "<div><dt>" + esc(p[0]) + "</dt><dd>" + esc(p[1]) + "</dd></div>"; }).join("") + "</dl>" +
+      '<div class="timeline-box"><h3>Soutenance : ' + mins + " min (" + Math.floor(mins / 60) + " h " + String(mins % 60).padStart(2, "0") + "), format à confirmer</h3>" +
+        '<div class="timeline-scroll"><div class="timeline">' + slots + '</div><div class="ticks">' + ticks.join("") + "</div></div></div>" +
+      '<div class="timeline-box"><h3>Work packages et charges prévisionnelles</h3>' +
+        '<div class="legend"><span><i class="s-real"></i>Réalisation</span><span><i class="s-red"></i>Rédaction</span><span><i class="s-sout"></i>Préparation soutenance</span></div>' +
+        '<div class="table-scroll"><table class="wp-table"><thead><tr>' +
+          '<th>Work package (ordre de passage)</th><th class="n">Pers.</th><th class="n">Réalisation</th><th class="n">Rédaction</th><th class="n">Soutenance</th><th class="n">Total</th><th class="n">Pages</th>' +
+        "</tr></thead><tbody>" + rows + "</tbody>" +
+        "<tfoot><tr><td>Total</td>" +
+          '<td class="n">' + tt.p + "</td>" +
+          '<td class="n">' + num(tt.r) + "</td>" +
+          '<td class="n">' + num(tt.w) + "</td>" +
+          '<td class="n">' + num(tt.o) + "</td>" +
+          '<td class="n">' + num(tt.all) + "</td>" +
+          '<td class="n">' + tt.pages + "</td></tr></tfoot></table></div>" +
+        '<p class="legend">Soit environ&nbsp;<b class="mono">' + (tt.all / tt.p).toFixed(1).replace(".", ",") + "&nbsp;j/h</b>&nbsp;par étudiant.</p></div>" +
+      '<div class="timeline-box"><h3>Points de vigilance</h3><ul class="watch">' +
+        s.watch.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div>" +
+      "</article></section>";
+  }).join("");
+
+  // Unités
+  function fmt(v, signedFlag) {
+    var val = unit === "jh" ? v : v * 7;
+    var s = Math.abs(val).toLocaleString("fr-FR", { maximumFractionDigits: 1 });
+    var sign = signedFlag ? (val > 0 ? "+" : val < 0 ? "−" : "") : (val < 0 ? "−" : "");
+    return sign + s + (unit === "jh" ? " j/h" : " h");
+  }
+  function render() {
+    var els = document.querySelectorAll("[data-jh]");
+    for (var i = 0; i < els.length; i++) {
+      els[i].textContent = fmt(Number(els[i].getAttribute("data-jh")), els[i].hasAttribute("data-signed"));
+    }
+    document.getElementById("unit-jh").setAttribute("aria-pressed", unit === "jh");
+    document.getElementById("unit-h").setAttribute("aria-pressed", unit === "h");
+  }
+  document.getElementById("unit-jh").addEventListener("click", function () { unit = "jh"; render(); });
+  document.getElementById("unit-h").addEventListener("click", function () { unit = "h"; render(); });
+  render();
+})();
+</script>
+</body>
+</html>

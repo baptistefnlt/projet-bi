@@ -246,7 +246,7 @@ img { max-width: 100%; }
   <header class="masthead">
     <div class="eyebrow">Projet BI 2026-2027 · MIAGE ACSI et SID · Pr K. Smaïli</div>
     <h1>Cadrage du projet BI</h1>
-    <p class="lede">Le sujet retenu par la promo, la sécurité routière, avec le découpage en work packages qui couvre toutes les exigences du sujet officiel, le calendrier jusqu'à la soutenance du 7 janvier et une estimation des charges.</p>
+    <p class="lede">Le sujet en tête du vote, la sécurité routière, avec le découpage en work packages qui couvre toutes les exigences du sujet officiel, le calendrier jusqu'à la soutenance du 7 janvier et une estimation des charges.</p>
     <div class="meta">
       <span>Proposé par Baptiste, chef de projet</span>
       <span class="mono">Mis à jour le 16/10/2026</span>
@@ -259,6 +259,7 @@ img { max-width: 100%; }
         <a href="#cadre">Cadre</a>
         <a href="#calendrier">Calendrier</a>
         <a href="#sujet-a">Le sujet et les WP</a>
+        <a href="sujets.html">Les 3 sujets</a>
         <a href="#regles">Règles</a>
         <a href="#suite">Suite</a>
       </div>
@@ -274,7 +275,6 @@ img { max-width: 100%; }
       <div class="status-box ok">
         <h3>Ce qui est fixé</h3>
         <ul>
-          <li><b>Sujet retenu par la promo : la sécurité routière</b> (accidents corporels de la circulation)</li>
           <li>Un rapport unique pour ACSI et SID, en anglais, 50 pages minimum</li>
           <li>Jeu de données de 50 000 enregistrements minimum</li>
           <li>K-means, arbres de décision et K-NN, appliqués et comparés</li>
@@ -285,6 +285,7 @@ img { max-width: 100%; }
       <div class="status-box pending">
         <h3>Encore à confirmer</h3>
         <ul>
+          <li><b>Le sujet</b> : la sécurité routière est en tête du vote, ouvert jusqu'au dimanche 18 octobre au soir. <a href="sujets.html">Voir les 3 sujets proposés</a></li>
           <li>Le format de soutenance : 20 min globales, puis 20 min par WP</li>
           <li>L'outil de suivi GestionBi, en cours de finalisation. En attendant, notez vos heures quelque part : elles seront importées.</li>
         </ul>
@@ -296,7 +297,7 @@ img { max-width: 100%; }
       <h2>Ce qu'on sait du projet</h2>
     </div>
     <div class="facts">
-      <div class="fact"><b class="mono">58</b><span>étudiants : 42 ACSI et 16 SID</span></div>
+      <div class="fact"><b class="mono">57</b><span>étudiants : 41 ACSI et 16 SID</span></div>
       <div class="fact"><b class="mono">≥ 50 000</b><span>enregistrements dans le jeu de données</span></div>
       <div class="fact"><b class="mono">≥ 50 p.</b><span>de rapport en anglais. Cible proposée : 80 pages</span></div>
       <div class="fact"><b class="mono">3</b><span>méthodes à comparer : K-means, arbres, K-NN</span></div>
@@ -324,7 +325,7 @@ img { max-width: 100%; }
     <h3>Hypothèses de charge</h3>
     <ul class="hyp">
       <li><b>1 j/h = 7 heures</b> de travail d'une personne. Le bouton en haut convertit tous les chiffres en heures.</li>
-      <li>Du 14 octobre au 7 janvier, il y a 12 semaines, dont environ 2 de vacances de fin d'année : il reste environ <b>10 semaines utiles</b>. À une demi-journée par semaine, chacun dispose d'environ <b class="mono">5 j/h</b>, soit une capacité de <b class="mono" data-jh="290"></b> pour la promo.</li>
+      <li>Du 14 octobre au 7 janvier, il y a 12 semaines, dont environ 2 de vacances de fin d'année : il reste environ <b>10 semaines utiles</b>. À une demi-journée par semaine, chacun dispose d'environ <b class="mono">5 j/h</b>, soit une capacité de <b class="mono" data-jh="285"></b> pour la promo.</li>
       <li>Rédaction : environ <b>0,4 j/h par page</b> d'anglais finalisée, pour une cible de <b>80 pages</b>, au-dessus du minimum de 50.</li>
       <li>Préparation de soutenance : <b>4 j/h par WP</b>, 6 pour le pilotage qui porte aussi la présentation globale.</li>
       <li>Les chiffres sont volontairement ronds. Ils seront affinés avec les chefs de WP une fois ceux-ci nommés.</li>
@@ -442,7 +443,7 @@ img { max-width: 100%; }
 
 <script>
 (function () {
-  var CAPACITY = 290;
+  var CAPACITY = 285;
   var unit = "jh";
 
   // [code, nom, personnes, réalisation, rédaction, soutenance, pages, contenu, présenté en soutenance]
@@ -460,7 +461,7 @@ img { max-width: 100%; }
         ["Data mining", "K-means : profils et zones d'accidents. Arbres et K-NN : prédire la gravité, sur la même cible."]
       ],
       wps: [
-        ["WP1", "Business & gouvernance", 7, 16, 4, 4, 10, "Persona préfecture ou assureur, KPIs, besoins des tableaux de bord. RGPD, données masquées, biais.", "Besoin du décideur, KPIs, cadre éthique"],
+        ["WP1", "Business & gouvernance", 6, 16, 4, 4, 10, "Persona préfecture ou assureur, KPIs, besoins des tableaux de bord. RGPD, données masquées, biais.", "Besoin du décideur, KPIs, cadre éthique"],
         ["WP2", "Données & qualité", 8, 26, 4, 4, 10, "Collecte, harmonisation des formats avant et après 2019, rupture de série 2018, codifications, extrait nettoyé.", "Sources, profilage, nettoyage avant / après"],
         ["WP3", "ETL & entrepôt", 8, 28, 5, 4, 12, "Schéma en étoile : fait « usager impliqué », dimensions lieu, temps, véhicule, conditions. Enrichissement INSEE.", "Modèle en étoile, pipeline, choix techniques"],
         ["WP4", "Dashboards", 8, 24, 4, 4, 10, "Plusieurs tableaux de bord Power BI selon les besoins de WP1 : cartes, tendances, storytelling.", "Démo des tableaux de bord"],
@@ -577,7 +578,7 @@ img { max-width: 100%; }
 
     return '<section id="' + s.id + '"><article class="dossier">' +
       '<div class="dossier-head"><div class="letter" aria-hidden="true">' + s.letter + "</div>" +
-        "<h2>Sujet retenu · " + esc(s.name) + "</h2>" +
+        "<h2>Sujet en tête du vote · " + esc(s.name) + "</h2>" +
         '<p class="q">' + esc(s.question) + "</p>" +
         '<div class="badges"><span class="pill ' + s.feas[1] + '">Faisabilité ' + s.feas[0] + "</span>" +
         '<span class="pill ' + s.risk[1] + '">Risque ' + s.risk[0].toLowerCase() + "</span>" +
