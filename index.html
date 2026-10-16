@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="fr"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!doctype html>
+<html lang="fr">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>Cadrage du projet BI</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link rel="stylesheet" href="index_files/css2_aMdd.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <style>
 /* Layout: dossier de cadrage en une colonne — en-tête, exigences du sujet, hypothèses, calendrier à l'échelle, comparatif, puis un dossier par sujet (frise de soutenance + tableau de charges). */
 :root {
@@ -246,10 +246,10 @@ img { max-width: 100%; }
   <header class="masthead">
     <div class="eyebrow">Projet BI 2026-2027 · MIAGE ACSI et SID · Pr K. Smaïli</div>
     <h1>Cadrage du projet BI</h1>
-    <p class="lede">Trois sujets possibles, un découpage en work packages qui couvre toutes les exigences du sujet officiel, un calendrier jusqu'à la soutenance du 7 janvier et une estimation des charges. De quoi discuter et voter.</p>
+    <p class="lede">Le sujet retenu par la promo, la sécurité routière, avec le découpage en work packages qui couvre toutes les exigences du sujet officiel, le calendrier jusqu'à la soutenance du 7 janvier et une estimation des charges.</p>
     <div class="meta">
       <span>Proposé par Baptiste, chef de projet</span>
-      <span class="mono">14/10/2026</span>
+      <span class="mono">Mis à jour le 16/10/2026</span>
     </div>
   </header>
 
@@ -258,10 +258,8 @@ img { max-width: 100%; }
       <div class="nav-links">
         <a href="#cadre">Cadre</a>
         <a href="#calendrier">Calendrier</a>
-        <a href="#comparatif">Comparatif</a>
-        <a href="#sujet-a">A · Accidents</a>
-        <a href="#sujet-b">B · DPE</a>
-        <a href="#sujet-c">C · Streaming</a>
+        <a href="#sujet-a">Le sujet et les WP</a>
+        <a href="#regles">Règles</a>
         <a href="#suite">Suite</a>
       </div>
       <div class="unit" role="group" aria-label="Unité des charges">
@@ -274,8 +272,9 @@ img { max-width: 100%; }
   <section id="cadre">
     <div class="status">
       <div class="status-box ok">
-        <h3>Fixé par le sujet officiel</h3>
+        <h3>Ce qui est fixé</h3>
         <ul>
+          <li><b>Sujet retenu par la promo : la sécurité routière</b> (accidents corporels de la circulation)</li>
           <li>Un rapport unique pour ACSI et SID, en anglais, 50 pages minimum</li>
           <li>Jeu de données de 50 000 enregistrements minimum</li>
           <li>K-means, arbres de décision et K-NN, appliqués et comparés</li>
@@ -287,7 +286,6 @@ img { max-width: 100%; }
         <h3>Encore à confirmer</h3>
         <ul>
           <li>Le format de soutenance : 20 min globales, puis 20 min par WP</li>
-          <li>Le choix du sujet, par vote de la promo</li>
           <li>L'outil de suivi GestionBi, en cours de finalisation. En attendant, notez vos heures quelque part : elles seront importées.</li>
         </ul>
       </div>
@@ -298,7 +296,7 @@ img { max-width: 100%; }
       <h2>Ce qu'on sait du projet</h2>
     </div>
     <div class="facts">
-      <div class="fact"><b class="mono">54</b><span>étudiants : 38 ACSI et 16 SID</span></div>
+      <div class="fact"><b class="mono">58</b><span>étudiants : 42 ACSI et 16 SID</span></div>
       <div class="fact"><b class="mono">≥ 50 000</b><span>enregistrements dans le jeu de données</span></div>
       <div class="fact"><b class="mono">≥ 50 p.</b><span>de rapport en anglais. Cible proposée : 80 pages</span></div>
       <div class="fact"><b class="mono">3</b><span>méthodes à comparer : K-means, arbres, K-NN</span></div>
@@ -313,10 +311,10 @@ img { max-width: 100%; }
           <tr><td>Organigramme détaillé : rôles, fonctions et responsabilités de chacun</td><td>WP0 · chef de projet</td></tr>
           <tr><td>Diagramme de Gantt avec étapes, jalons et livrables</td><td>WP0 · chef de projet et adjoint PMO</td></tr>
           <tr><td>Chaîne complète, de la collecte des données à la décision</td><td>WP1 à WP4, dans l'ordre</td></tr>
-          <tr><td>Jeu de données d'au moins 50 000 enregistrements</td><td>WP2 · Données &amp; qualité</td></tr>
+          <tr><td>Jeu de données d'au moins 50 000 enregistrements</td><td>WP2 · Données & qualité</td></tr>
           <tr><td>Plusieurs tableaux de bord adaptés aux besoins identifiés</td><td>WP1 (besoins) puis WP4 (tableaux de bord)</td></tr>
-          <tr><td>Entrepôt de données en étoile</td><td>WP3 (WP4 pour le sujet B)</td></tr>
-          <tr><td>K-means, arbres de décision, K-NN, et leur comparaison</td><td>Un WP par méthode ; la comparaison est portée par le WP K-NN</td></tr>
+          <tr><td>Entrepôt de données en étoile</td><td>WP3 · ETL & entrepôt</td></tr>
+          <tr><td>K-means, arbres de décision, K-NN, et leur comparaison</td><td>WP5 · K-means, WP6 · Arbres de décision, WP7 · K-NN & comparaison</td></tr>
           <tr><td>Rapport unique d'au moins 50 pages en anglais</td><td>Tous les WP, coordonnés par la cellule de rédaction de WP0</td></tr>
           <tr><td>Soutenance en anglais devant tous les intervenants</td><td>Chef de projet (présentation globale) et chaque WP</td></tr>
         </tbody>
@@ -326,10 +324,10 @@ img { max-width: 100%; }
     <h3>Hypothèses de charge</h3>
     <ul class="hyp">
       <li><b>1 j/h = 7 heures</b> de travail d'une personne. Le bouton en haut convertit tous les chiffres en heures.</li>
-      <li>Du 14 octobre au 7 janvier, il y a 12 semaines, dont environ 2 de vacances de fin d'année : il reste environ <b>10 semaines utiles</b>. À une demi-journée par semaine, chacun dispose d'environ <b class="mono">5 j/h</b>, soit une capacité de <b class="mono" data-jh="270">270 j/h</b> pour la promo.</li>
+      <li>Du 14 octobre au 7 janvier, il y a 12 semaines, dont environ 2 de vacances de fin d'année : il reste environ <b>10 semaines utiles</b>. À une demi-journée par semaine, chacun dispose d'environ <b class="mono">5 j/h</b>, soit une capacité de <b class="mono" data-jh="290"></b> pour la promo.</li>
       <li>Rédaction : environ <b>0,4 j/h par page</b> d'anglais finalisée, pour une cible de <b>80 pages</b>, au-dessus du minimum de 50.</li>
       <li>Préparation de soutenance : <b>4 j/h par WP</b>, 6 pour le pilotage qui porte aussi la présentation globale.</li>
-      <li>Les chiffres sont volontairement ronds. Ils seront affinés avec les chefs de WP une fois le sujet choisi.</li>
+      <li>Les chiffres sont volontairement ronds. Ils seront affinés avec les chefs de WP une fois ceux-ci nommés.</li>
     </ul>
   </section>
 
@@ -337,9 +335,9 @@ img { max-width: 100%; }
     <div class="section-head">
       <div class="eyebrow">Calendrier indicatif</div>
       <h2>Du lancement au 7 janvier</h2>
-      <p class="muted">Première version des étapes et des jalons, la même pour les trois sujets. Le Gantt officiel sera construit par WP0 une fois le sujet choisi.</p>
+      <p class="muted">Première version des étapes et des jalons. Le Gantt officiel, détaillé par WP, sera publié le vendredi 23 octobre.</p>
     </div>
-    <div class="gantt-scroll"><div class="gantt" id="gantt"><div class="g-label"></div><div class="g-weeks"><span style="left:0.000%">12/10</span><span style="left:7.692%">19/10</span><span style="left:15.385%">26/10</span><span style="left:23.077%">02/11</span><span style="left:30.769%">09/11</span><span style="left:38.462%">16/11</span><span style="left:46.154%">23/11</span><span style="left:53.846%">30/11</span><span style="left:61.538%">07/12</span><span style="left:69.231%">14/12</span><span style="left:76.923%">21/12</span><span style="left:84.615%">28/12</span><span style="left:92.308%">04/01</span></div><div class="g-label"><b>Jalons</b></div><div class="g-track"><div class="g-grid" style="left:0.000%"></div><div class="g-grid" style="left:7.692%"></div><div class="g-grid" style="left:15.385%"></div><div class="g-grid" style="left:23.077%"></div><div class="g-grid" style="left:30.769%"></div><div class="g-grid" style="left:38.462%"></div><div class="g-grid" style="left:46.154%"></div><div class="g-grid" style="left:53.846%"></div><div class="g-grid" style="left:61.538%"></div><div class="g-grid" style="left:69.231%"></div><div class="g-grid" style="left:76.923%"></div><div class="g-grid" style="left:84.615%"></div><div class="g-grid" style="left:92.308%"></div><div class="g-holiday" style="left:74.725%;width:17.582%"></div><div class="g-ms" style="left:12.637%" title="M1 · ven. 23/10 · Lancement : chefs de WP nommés, organigramme et Gantt v1, sujet voté"></div><div class="g-ms" style="left:28.022%" title="M2 · ven. 06/11 · Données collectées, extrait nettoyé livré aux WP d'analyse, protocole commun de data mining fixé"></div><div class="g-ms" style="left:51.099%" title="M3 · ven. 27/11 · Entrepôt en étoile chargé"></div><div class="g-ms" style="left:66.484%" title="M4 · ven. 11/12 · Tableaux de bord et modèles v1, résultats de la comparaison"></div><div class="g-ms" style="left:74.176%" title="M5 · ven. 18/12 · Rapport v1 complet, avant les vacances"></div><div class="g-ms" style="left:93.956%" title="M6 · mar. 05/01 · Rapport final en anglais, répétition générale"></div><div class="g-ms final" style="left:96.154%" title="M7 · jeu. 07/01 · Soutenance et remise du rapport"></div></div><div class="g-label">Lancement<small>WP0</small></div><div class="g-track"><div class="g-grid" style="left:0.000%"></div><div class="g-grid" style="left:7.692%"></div><div class="g-grid" style="left:15.385%"></div><div class="g-grid" style="left:23.077%"></div><div class="g-grid" style="left:30.769%"></div><div class="g-grid" style="left:38.462%"></div><div class="g-grid" style="left:46.154%"></div><div class="g-grid" style="left:53.846%"></div><div class="g-grid" style="left:61.538%"></div><div class="g-grid" style="left:69.231%"></div><div class="g-grid" style="left:76.923%"></div><div class="g-grid" style="left:84.615%"></div><div class="g-grid" style="left:92.308%"></div><div class="g-holiday" style="left:74.725%;width:17.582%"></div><div class="g-bar " style="left:2.198%;width:10.989%"></div></div><div class="g-label">Besoins &amp; KPIs<small>WP1</small></div><div class="g-track"><div class="g-grid" style="left:0.000%"></div><div class="g-grid" style="left:7.692%"></div><div class="g-grid" style="left:15.385%"></div><div class="g-grid" style="left:23.077%"></div><div class="g-grid" style="left:30.769%"></div><div class="g-grid" style="left:38.462%"></div><div class="g-grid" style="left:46.154%"></div><div class="g-grid" style="left:53.846%"></div><div class="g-grid" style="left:61.538%"></div><div class="g-grid" style="left:69.231%"></div><div class="g-grid" style="left:76.923%"></div><div class="g-grid" style="left:84.615%"></div><div class="g-grid" style="left:92.308%"></div><div class="g-holiday" style="left:74.725%;width:17.582%"></div><div class="g-bar " style="left:7.692%;width:28.571%"></div></div><div class="g-label">Collecte &amp; qualité<small>WP2</small></div><div class="g-track"><div class="g-grid" style="left:0.000%"></div><div class="g-grid" style="left:7.692%"></div><div class="g-grid" style="left:15.385%"></div><div class="g-grid" style="left:23.077%"></div><div class="g-grid" style="left:30.769%"></div><div class="g-grid" style="left:38.462%"></div><div class="g-grid" style="left:46.154%"></div><div class="g-grid" style="left:53.846%"></div><div class="g-grid" style="left:61.538%"></div><div class="g-grid" style="left:69.231%"></div><div class="g-grid" style="left:76.923%"></div><div class="g-grid" style="left:84.615%"></div><div class="g-grid" style="left:92.308%"></div><div class="g-holiday" style="left:74.725%;width:17.582%"></div><div class="g-bar " style="left:7.692%;width:20.879%"></div></div><div class="g-label">Entrepôt en étoile<small>WP3</small></div><div class="g-track"><div class="g-grid" style="left:0.000%"></div><div class="g-grid" style="left:7.692%"></div><div class="g-grid" style="left:15.385%"></div><div class="g-grid" style="left:23.077%"></div><div class="g-grid" style="left:30.769%"></div><div class="g-grid" style="left:38.462%"></div><div class="g-grid" style="left:46.154%"></div><div class="g-grid" style="left:53.846%"></div><div class="g-grid" style="left:61.538%"></div><div class="g-grid" style="left:69.231%"></div><div class="g-grid" style="left:76.923%"></div><div class="g-grid" style="left:84.615%"></div><div class="g-grid" style="left:92.308%"></div><div class="g-holiday" style="left:74.725%;width:17.582%"></div><div class="g-bar " style="left:23.077%;width:28.571%"></div></div><div class="g-label">Tableaux de bord<small>WP4</small></div><div class="g-track"><div class="g-grid" style="left:0.000%"></div><div class="g-grid" style="left:7.692%"></div><div class="g-grid" style="left:15.385%"></div><div class="g-grid" style="left:23.077%"></div><div class="g-grid" style="left:30.769%"></div><div class="g-grid" style="left:38.462%"></div><div class="g-grid" style="left:46.154%"></div><div class="g-grid" style="left:53.846%"></div><div class="g-grid" style="left:61.538%"></div><div class="g-grid" style="left:69.231%"></div><div class="g-grid" style="left:76.923%"></div><div class="g-grid" style="left:84.615%"></div><div class="g-grid" style="left:92.308%"></div><div class="g-holiday" style="left:74.725%;width:17.582%"></div><div class="g-bar " style="left:38.462%;width:28.571%"></div></div><div class="g-label">Data mining<small>K-means, arbres, K-NN</small></div><div class="g-track"><div class="g-grid" style="left:0.000%"></div><div class="g-grid" style="left:7.692%"></div><div class="g-grid" style="left:15.385%"></div><div class="g-grid" style="left:23.077%"></div><div class="g-grid" style="left:30.769%"></div><div class="g-grid" style="left:38.462%"></div><div class="g-grid" style="left:46.154%"></div><div class="g-grid" style="left:53.846%"></div><div class="g-grid" style="left:61.538%"></div><div class="g-grid" style="left:69.231%"></div><div class="g-grid" style="left:76.923%"></div><div class="g-grid" style="left:84.615%"></div><div class="g-grid" style="left:92.308%"></div><div class="g-holiday" style="left:74.725%;width:17.582%"></div><div class="g-bar " style="left:30.769%;width:36.264%"></div></div><div class="g-label">Rédaction du rapport<small>Tous</small></div><div class="g-track"><div class="g-grid" style="left:0.000%"></div><div class="g-grid" style="left:7.692%"></div><div class="g-grid" style="left:15.385%"></div><div class="g-grid" style="left:23.077%"></div><div class="g-grid" style="left:30.769%"></div><div class="g-grid" style="left:38.462%"></div><div class="g-grid" style="left:46.154%"></div><div class="g-grid" style="left:53.846%"></div><div class="g-grid" style="left:61.538%"></div><div class="g-grid" style="left:69.231%"></div><div class="g-grid" style="left:76.923%"></div><div class="g-grid" style="left:84.615%"></div><div class="g-grid" style="left:92.308%"></div><div class="g-holiday" style="left:74.725%;width:17.582%"></div><div class="g-bar soft" style="left:46.154%;width:28.571%"></div><div class="g-bar soft" style="left:92.308%;width:2.198%"></div></div><div class="g-label">Soutenance<small>Tous</small></div><div class="g-track"><div class="g-grid" style="left:0.000%"></div><div class="g-grid" style="left:7.692%"></div><div class="g-grid" style="left:15.385%"></div><div class="g-grid" style="left:23.077%"></div><div class="g-grid" style="left:30.769%"></div><div class="g-grid" style="left:38.462%"></div><div class="g-grid" style="left:46.154%"></div><div class="g-grid" style="left:53.846%"></div><div class="g-grid" style="left:61.538%"></div><div class="g-grid" style="left:69.231%"></div><div class="g-grid" style="left:76.923%"></div><div class="g-grid" style="left:84.615%"></div><div class="g-grid" style="left:92.308%"></div><div class="g-holiday" style="left:74.725%;width:17.582%"></div><div class="g-bar sout" style="left:69.231%;width:5.495%"></div><div class="g-bar sout" style="left:92.308%;width:4.396%"></div></div><div class="g-label"></div><div class="g-weeks"><span style="left:12.637%">M1</span><span style="left:28.022%">M2</span><span style="left:51.099%">M3</span><span style="left:66.484%">M4</span><span style="left:74.176%">M5</span><span style="left:93.956%">M6</span><span style="left:96.154%">M7</span></div></div></div>
+    <div class="gantt-scroll"><div class="gantt" id="gantt"></div></div>
     <div class="legend">
       <span><i class="s-real"></i>Réalisation</span>
       <span><i class="s-red"></i>Rédaction</span>
@@ -350,37 +348,13 @@ img { max-width: 100%; }
     <div class="table-scroll">
       <table class="ms-table">
         <thead><tr><th>Jalon</th><th>Date</th><th>Livrable</th></tr></thead>
-        <tbody id="ms-body"><tr><td class="mono">M1</td><td class="mono" style="white-space:nowrap">ven. 23/10</td><td>Lancement : chefs de WP nommés, organigramme et Gantt v1, sujet voté</td></tr><tr><td class="mono">M2</td><td class="mono" style="white-space:nowrap">ven. 06/11</td><td>Données collectées, extrait nettoyé livré aux WP d'analyse, protocole commun de data mining fixé</td></tr><tr><td class="mono">M3</td><td class="mono" style="white-space:nowrap">ven. 27/11</td><td>Entrepôt en étoile chargé</td></tr><tr><td class="mono">M4</td><td class="mono" style="white-space:nowrap">ven. 11/12</td><td>Tableaux de bord et modèles v1, résultats de la comparaison</td></tr><tr><td class="mono">M5</td><td class="mono" style="white-space:nowrap">ven. 18/12</td><td>Rapport v1 complet, avant les vacances</td></tr><tr><td class="mono">M6</td><td class="mono" style="white-space:nowrap">mar. 05/01</td><td>Rapport final en anglais, répétition générale</td></tr><tr><td class="mono">M7</td><td class="mono" style="white-space:nowrap">jeu. 07/01</td><td>Soutenance et remise du rapport</td></tr></tbody>
+        <tbody id="ms-body"></tbody>
       </table>
     </div>
   </section>
 
-  <section id="comparatif">
-    <div class="section-head">
-      <div class="eyebrow">Comparatif</div>
-      <h2>Les trois sujets en un coup d'œil</h2>
-    </div>
-    <div class="table-scroll">
-      <table class="compare">
-        <thead>
-          <tr>
-            <th>Sujet</th>
-            <th>Faisabilité</th>
-            <th>Risque</th>
-            <th class="n">WP</th>
-            <th class="n">Soutenance</th>
-            <th class="n">Charge</th>
-            <th class="n">Marge</th>
-            <th>Chemin critique</th>
-          </tr>
-        </thead>
-        <tbody id="compare-body"><tr><td><a href="#sujet-a"><b>A · Sécurité routière</b></a><br><span class="muted" style="font-size:.85rem">Quels facteurs aggravent un accident corporel, et où agir en priorité ?</span></td><td><span class="pill p-ok">★★★</span></td><td><span class="pill p-ok">Faible</span></td><td class="n">8</td><td class="n">180 min</td><td class="n"><span data-jh="240">240 j/h</span></td><td class="n"><span class="pill p-ok"><span data-jh="30" data-signed="1">+30 j/h</span></span></td><td>WP2 : harmoniser plusieurs années de fichiers</td></tr><tr><td><a href="#sujet-b"><b>B · Passoires thermiques</b></a><br><span class="muted" style="font-size:.85rem">Un mauvais DPE fait-il baisser le prix d'un logement ?</span></td><td><span class="pill p-warn">★★☆</span></td><td><span class="pill p-bad">Élevé</span></td><td class="n">9</td><td class="n">200 min</td><td class="n"><span data-jh="268">268 j/h</span></td><td class="n"><span class="pill p-warn"><span data-jh="2" data-signed="1">+2 j/h</span></span></td><td>WP3 : apparier DPE et transactions</td></tr><tr><td><a href="#sujet-c"><b>C · Streaming</b></a><br><span class="muted" style="font-size:.85rem">Quels films une plateforme de streaming devrait-elle acquérir et recommander ?</span></td><td><span class="pill p-ok">★★★</span></td><td><span class="pill p-warn">Moyen</span></td><td class="n">8</td><td class="n">180 min</td><td class="n"><span data-jh="240">240 j/h</span></td><td class="n"><span class="pill p-ok"><span data-jh="30" data-signed="1">+30 j/h</span></span></td><td>WP3 : volumétrie de 32M de notes</td></tr></tbody>
-      </table>
-    </div>
-    <p class="legend">Marge = capacité estimée (<span class="mono" data-jh="270">270 j/h</span>) moins charge prévue. Une marge proche de zéro veut dire que le moindre retard oblige à réduire le périmètre.</p>
-  </section>
 
-  <div id="dossiers"><section id="sujet-a"><article class="dossier"><div class="dossier-head"><div class="letter" aria-hidden="true">A</div><h2>Sujet A · Sécurité routière</h2><p class="q">Quels facteurs aggravent un accident corporel, et où agir en priorité ?</p><div class="badges"><span class="pill p-ok">Faisabilité ★★★</span><span class="pill p-ok">Risque faible</span><span class="pill p-ok">Marge <span data-jh="30" data-signed="1">+30 j/h</span></span></div></div><dl class="spec"><div><dt>Décideur</dt><dd>Préfecture, Sécurité routière ou assureur</dd></div><div><dt>Données</dt><dd>Fichiers BAAC de l'ONISR, 2005 à 2024, 4 fichiers CSV par an (caractéristiques, lieux, véhicules, usagers). Plusieurs années cumulées dépassent largement 50 000 accidents. Documentation officielle en anglais.</dd></div><div><dt>Data mining</dt><dd>K-means : profils et zones d'accidents. Arbres et K-NN : prédire la gravité, sur la même cible.</dd></div></dl><div class="timeline-box"><h3>Soutenance : 180 min (3 h 00), format à confirmer</h3><div class="timeline-scroll"><div class="timeline"><div class="slot global"><b>Global</b><span>Présentation</span></div><div class="slot"><b>WP1</b><span>Business &amp; gouvernance</span></div><div class="slot"><b>WP2</b><span>Données &amp; qualité</span></div><div class="slot"><b>WP3</b><span>ETL &amp; entrepôt</span></div><div class="slot"><b>WP4</b><span>Dashboards</span></div><div class="slot"><b>WP5</b><span>K-means</span></div><div class="slot"><b>WP6</b><span>Arbres de décision</span></div><div class="slot"><b>WP7</b><span>K-NN &amp; comparaison</span></div><div class="slot"><b>WP0</b><span>Pilotage &amp; qualité</span></div></div><div class="ticks"><span>0</span><span>20</span><span>40</span><span>60</span><span>80</span><span>100</span><span>120</span><span>140</span><span>160</span><span>180</span></div></div></div><div class="timeline-box"><h3>Work packages et charges prévisionnelles</h3><div class="legend"><span><i class="s-real"></i>Réalisation</span><span><i class="s-red"></i>Rédaction</span><span><i class="s-sout"></i>Préparation soutenance</span></div><div class="table-scroll"><table class="wp-table"><thead><tr><th>Work package (ordre de passage)</th><th class="n">Pers.</th><th class="n">Réalisation</th><th class="n">Rédaction</th><th class="n">Soutenance</th><th class="n">Total</th><th class="n">Pages</th></tr></thead><tbody><tr><td><span class="wp-name"><span class="wp-code">WP1</span>Business &amp; gouvernance</span><span class="wp-desc">Persona préfecture ou assureur, KPIs, besoins des tableaux de bord. RGPD, données masquées, biais.</span><span class="wp-pres"><i>En soutenance</i>Besoin du décideur, KPIs, cadre éthique</span></td><td class="n">6</td><td class="n"><span data-jh="16">16 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="24">24 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:33.33%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">10</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP2</span>Données &amp; qualité</span><span class="wp-desc">Collecte, harmonisation des formats avant et après 2019, rupture de série 2018, codifications, extrait nettoyé.</span><span class="wp-pres"><i>En soutenance</i>Sources, profilage, nettoyage avant / après</span></td><td class="n">8</td><td class="n"><span data-jh="26">26 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="34">34 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:54.17%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">10</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP3</span>ETL &amp; entrepôt</span><span class="wp-desc">Schéma en étoile : fait « usager impliqué », dimensions lieu, temps, véhicule, conditions. Enrichissement INSEE.</span><span class="wp-pres"><i>En soutenance</i>Modèle en étoile, pipeline, choix techniques</span></td><td class="n">8</td><td class="n"><span data-jh="28">28 j/h</span></td><td class="n"><span data-jh="5">5 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="37">37 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:58.33%"></span><span class="s-red" style="width:10.42%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">12</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP4</span>Dashboards</span><span class="wp-desc">Plusieurs tableaux de bord Power BI selon les besoins de WP1 : cartes, tendances, storytelling.</span><span class="wp-pres"><i>En soutenance</i>Démo des tableaux de bord</span></td><td class="n">7</td><td class="n"><span data-jh="24">24 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="32">32 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:50.00%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">10</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP5</span>K-means</span><span class="wp-desc">Profils d'accidents et zones à risque, choix de k (coude, silhouette), interprétation.</span><span class="wp-pres"><i>En soutenance</i>Segments et leur interprétation</span></td><td class="n">6</td><td class="n"><span data-jh="18">18 j/h</span></td><td class="n"><span data-jh="3">3 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="25">25 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:37.50%"></span><span class="s-red" style="width:6.25%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">8</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP6</span>Arbres de décision</span><span class="wp-desc">Prédire la gravité, élagage, classes très déséquilibrées (les tués sont rares), variables déterminantes.</span><span class="wp-pres"><i>En soutenance</i>Modèle, évaluation, facteurs aggravants</span></td><td class="n">6</td><td class="n"><span data-jh="18">18 j/h</span></td><td class="n"><span data-jh="3">3 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="25">25 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:37.50%"></span><span class="s-red" style="width:6.25%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">8</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP7</span>K-NN &amp; comparaison</span><span class="wp-desc">Même cible que les arbres, encodage des variables, échantillonnage, choix de k et de la distance. Chapitre de comparaison des 3 méthodes.</span><span class="wp-pres"><i>En soutenance</i>K-NN, puis comparaison des trois méthodes</span></td><td class="n">8</td><td class="n"><span data-jh="24">24 j/h</span></td><td class="n"><span data-jh="5">5 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="33">33 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:50.00%"></span><span class="s-red" style="width:10.42%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">12</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP0</span>Pilotage &amp; qualité</span><span class="wp-desc">Organigramme, Gantt, comité de pilotage, risques. Adjoint PMO et contrôle des temps, cellule de rédaction, gabarit commun, relecture anglaise.</span><span class="wp-pres"><i>En soutenance</i>Présentation globale, puis bilan prévu / réel</span></td><td class="n">5</td><td class="n"><span data-jh="20">20 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="6">6 j/h</span></td><td class="n"><b><span data-jh="30">30 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:41.67%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:12.50%"></span></div></td><td class="n">10</td></tr></tbody><tfoot><tr><td>Total</td><td class="n">54</td><td class="n"><span data-jh="174">174 j/h</span></td><td class="n"><span data-jh="32">32 j/h</span></td><td class="n"><span data-jh="34">34 j/h</span></td><td class="n"><span data-jh="240">240 j/h</span></td><td class="n">80</td></tr></tfoot></table></div><p class="legend">Soit environ&nbsp;<b class="mono">4,4&nbsp;j/h</b>&nbsp;par étudiant.</p></div><div class="timeline-box"><h3>Points de vigilance</h3><ul class="watch"><li>Harmoniser les formats avant et après 2019 prend du temps. Limiter l'étude à 2019-2024 suffit largement pour dépasser 50 000 enregistrements.</li><li>La classification des blessés hospitalisés depuis 2018 n'est pas comparable aux années précédentes : à documenter, c'est un bon point en soutenance.</li><li>K-NN se comporte mal sur des variables surtout catégorielles et sur des millions de lignes : il faudra encoder et échantillonner.</li></ul></div></article></section><section id="sujet-b"><article class="dossier"><div class="dossier-head"><div class="letter" aria-hidden="true">B</div><h2>Sujet B · Passoires thermiques</h2><p class="q">Un mauvais DPE fait-il baisser le prix d'un logement ?</p><div class="badges"><span class="pill p-warn">Faisabilité ★★☆</span><span class="pill p-bad">Risque élevé</span><span class="pill p-warn">Marge <span data-jh="2" data-signed="1">+2 j/h</span></span></div></div><dl class="spec"><div><dt>Décideur</dt><dd>Banque (prêts verts) ou collectivité (plan de rénovation)</dd></div><div><dt>Données</dt><dd>Base DPE de l'ADEME (depuis juillet 2021, mise à jour mensuelle) et DVF (transactions des 5 dernières années, hors Alsace, Moselle et Mayotte). Des millions de lignes.</dd></div><div><dt>Data mining</dt><dd>K-means : typologie des logements et des territoires. Arbres et K-NN : prédire la classe DPE, sur la même cible.</dd></div></dl><div class="timeline-box"><h3>Soutenance : 200 min (3 h 20), format à confirmer</h3><div class="timeline-scroll"><div class="timeline"><div class="slot global"><b>Global</b><span>Présentation</span></div><div class="slot"><b>WP1</b><span>Business &amp; gouvernance</span></div><div class="slot"><b>WP2</b><span>Données &amp; qualité</span></div><div class="slot"><b>WP3</b><span>Appariement DPE ↔ DVF</span></div><div class="slot"><b>WP4</b><span>ETL &amp; entrepôt</span></div><div class="slot"><b>WP5</b><span>Dashboards &amp; décote</span></div><div class="slot"><b>WP6</b><span>K-means</span></div><div class="slot"><b>WP7</b><span>Arbres de décision</span></div><div class="slot"><b>WP8</b><span>K-NN &amp; comparaison</span></div><div class="slot"><b>WP0</b><span>Pilotage &amp; qualité</span></div></div><div class="ticks"><span>0</span><span>20</span><span>40</span><span>60</span><span>80</span><span>100</span><span>120</span><span>140</span><span>160</span><span>180</span><span>200</span></div></div></div><div class="timeline-box"><h3>Work packages et charges prévisionnelles</h3><div class="legend"><span><i class="s-real"></i>Réalisation</span><span><i class="s-red"></i>Rédaction</span><span><i class="s-sout"></i>Préparation soutenance</span></div><div class="table-scroll"><table class="wp-table"><thead><tr><th>Work package (ordre de passage)</th><th class="n">Pers.</th><th class="n">Réalisation</th><th class="n">Rédaction</th><th class="n">Soutenance</th><th class="n">Total</th><th class="n">Pages</th></tr></thead><tbody><tr><td><span class="wp-name"><span class="wp-code">WP1</span>Business &amp; gouvernance</span><span class="wp-desc">Persona banque ou collectivité, calendrier d'interdiction de location des passoires, besoins des tableaux de bord. Qualité des sources, licences, éthique.</span><span class="wp-pres"><i>En soutenance</i>Besoin du décideur, cadre réglementaire</span></td><td class="n">5</td><td class="n"><span data-jh="14">14 j/h</span></td><td class="n"><span data-jh="3">3 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="21">21 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:29.17%"></span><span class="s-red" style="width:6.25%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">8</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP2</span>Données &amp; qualité</span><span class="wp-desc">Volumétrie, valeurs aberrantes DVF, ventes multi-lots, DPE jamais corrigés par l'ADEME.</span><span class="wp-pres"><i>En soutenance</i>Sources, profilage, nettoyage</span></td><td class="n">6</td><td class="n"><span data-jh="24">24 j/h</span></td><td class="n"><span data-jh="3">3 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="31">31 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:50.00%"></span><span class="s-red" style="width:6.25%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">8</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP3</span>Appariement DPE ↔ DVF</span><span class="wp-desc">Croisement par adresse ou géolocalisation, mesure du taux d'appariement, périmètre géographique restreint.</span><span class="wp-pres"><i>En soutenance</i>Méthode d'appariement et sa fiabilité</span></td><td class="n">7</td><td class="n"><span data-jh="40">40 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="48">48 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:83.33%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">10</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP4</span>ETL &amp; entrepôt</span><span class="wp-desc">Schéma en étoile : fait « transaction », dimensions logement, DPE, commune, temps.</span><span class="wp-pres"><i>En soutenance</i>Modèle en étoile, pipeline</span></td><td class="n">6</td><td class="n"><span data-jh="22">22 j/h</span></td><td class="n"><span data-jh="3">3 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="29">29 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:45.83%"></span><span class="s-red" style="width:6.25%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">8</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP5</span>Dashboards &amp; décote</span><span class="wp-desc">Plusieurs tableaux de bord selon les besoins de WP1 : cartes des prix et des passoires, décote de prix par classe DPE.</span><span class="wp-pres"><i>En soutenance</i>Démo, et combien coûte un mauvais DPE</span></td><td class="n">7</td><td class="n"><span data-jh="22">22 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="30">30 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:45.83%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">10</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP6</span>K-means</span><span class="wp-desc">Typologie des logements et des territoires, choix de k, interprétation.</span><span class="wp-pres"><i>En soutenance</i>Segments et leur interprétation</span></td><td class="n">6</td><td class="n"><span data-jh="16">16 j/h</span></td><td class="n"><span data-jh="3">3 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="23">23 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:33.33%"></span><span class="s-red" style="width:6.25%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">7</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP7</span>Arbres de décision</span><span class="wp-desc">Prédire la classe DPE, élagage, variables déterminantes.</span><span class="wp-pres"><i>En soutenance</i>Modèle et variables déterminantes</span></td><td class="n">6</td><td class="n"><span data-jh="16">16 j/h</span></td><td class="n"><span data-jh="3">3 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="23">23 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:33.33%"></span><span class="s-red" style="width:6.25%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">7</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP8</span>K-NN &amp; comparaison</span><span class="wp-desc">Même cible que les arbres, variables numériques (surface, année, consommation). Chapitre de comparaison des 3 méthodes.</span><span class="wp-pres"><i>En soutenance</i>K-NN, puis comparaison des trois méthodes</span></td><td class="n">6</td><td class="n"><span data-jh="22">22 j/h</span></td><td class="n"><span data-jh="5">5 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="31">31 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:45.83%"></span><span class="s-red" style="width:10.42%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">12</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP0</span>Pilotage &amp; qualité</span><span class="wp-desc">Organigramme, Gantt, suivi serré du chemin critique, décision go / no-go sur l'appariement le 6 novembre, cellule de rédaction.</span><span class="wp-pres"><i>En soutenance</i>Présentation globale, puis bilan prévu / réel</span></td><td class="n">5</td><td class="n"><span data-jh="22">22 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="6">6 j/h</span></td><td class="n"><b><span data-jh="32">32 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:45.83%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:12.50%"></span></div></td><td class="n">10</td></tr></tbody><tfoot><tr><td>Total</td><td class="n">54</td><td class="n"><span data-jh="198">198 j/h</span></td><td class="n"><span data-jh="32">32 j/h</span></td><td class="n"><span data-jh="38">38 j/h</span></td><td class="n"><span data-jh="268">268 j/h</span></td><td class="n">80</td></tr></tfoot></table></div><p class="legend">Soit environ&nbsp;<b class="mono">5,0&nbsp;j/h</b>&nbsp;par étudiant.</p></div><div class="timeline-box"><h3>Points de vigilance</h3><ul class="watch"><li>L'appariement bloque tout le reste. Décision go / no-go au jalon du 6 novembre : si le taux est mauvais, on bascule sur un autre sujet tant qu'il est encore temps.</li><li>Restreindre le périmètre dès le départ (quelques départements du Grand Est). La Moselle n'est pas couverte par DVF.</li><li>Marge quasi nulle : le moindre retard oblige à réduire le périmètre.</li></ul></div></article></section><section id="sujet-c"><article class="dossier"><div class="dossier-head"><div class="letter" aria-hidden="true">C</div><h2>Sujet C · Streaming</h2><p class="q">Quels films une plateforme de streaming devrait-elle acquérir et recommander ?</p><div class="badges"><span class="pill p-ok">Faisabilité ★★★</span><span class="pill p-warn">Risque moyen</span><span class="pill p-ok">Marge <span data-jh="30" data-signed="1">+30 j/h</span></span></div></div><dl class="spec"><div><dt>Décideur</dt><dd>Direction des contenus d'une plateforme</dd></div><div><dt>Données</dt><dd>MovieLens 32M (32 millions de notes, 87 585 films, 200 948 utilisateurs) enrichi par l'API TMDB, jointure directe grâce aux identifiants fournis.</dd></div><div><dt>Data mining</dt><dd>K-means : segments d'utilisateurs ou familles de films. Arbres et K-NN : prédire si un film sera bien noté. K-NN sert aussi naturellement à la recommandation.</dd></div></dl><div class="timeline-box"><h3>Soutenance : 180 min (3 h 00), format à confirmer</h3><div class="timeline-scroll"><div class="timeline"><div class="slot global"><b>Global</b><span>Présentation</span></div><div class="slot"><b>WP1</b><span>Business &amp; gouvernance</span></div><div class="slot"><b>WP2</b><span>Données &amp; qualité</span></div><div class="slot"><b>WP3</b><span>ETL &amp; entrepôt</span></div><div class="slot"><b>WP4</b><span>Dashboards</span></div><div class="slot"><b>WP5</b><span>K-means</span></div><div class="slot"><b>WP6</b><span>Arbres de décision</span></div><div class="slot"><b>WP7</b><span>K-NN, recommandation &amp; comparaison</span></div><div class="slot"><b>WP0</b><span>Pilotage &amp; qualité</span></div></div><div class="ticks"><span>0</span><span>20</span><span>40</span><span>60</span><span>80</span><span>100</span><span>120</span><span>140</span><span>160</span><span>180</span></div></div></div><div class="timeline-box"><h3>Work packages et charges prévisionnelles</h3><div class="legend"><span><i class="s-real"></i>Réalisation</span><span><i class="s-red"></i>Rédaction</span><span><i class="s-sout"></i>Préparation soutenance</span></div><div class="table-scroll"><table class="wp-table"><thead><tr><th>Work package (ordre de passage)</th><th class="n">Pers.</th><th class="n">Réalisation</th><th class="n">Rédaction</th><th class="n">Soutenance</th><th class="n">Total</th><th class="n">Pages</th></tr></thead><tbody><tr><td><span class="wp-name"><span class="wp-code">WP1</span>Business &amp; gouvernance</span><span class="wp-desc">Persona direction des contenus, KPIs d'acquisition, besoins des tableaux de bord. Conditions TMDB (attribution, conservation 6 mois max), licence MovieLens, biais de popularité.</span><span class="wp-pres"><i>En soutenance</i>Besoin du décideur, cadre légal et éthique</span></td><td class="n">6</td><td class="n"><span data-jh="16">16 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="24">24 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:33.33%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">10</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP2</span>Données &amp; qualité</span><span class="wp-desc">Téléchargement MovieLens, script de collecte via l'API TMDB (environ 87k films, casting, mots-clés), stockage, qualité.</span><span class="wp-pres"><i>En soutenance</i>Sources, collecte, nettoyage</span></td><td class="n">8</td><td class="n"><span data-jh="26">26 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="34">34 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:54.17%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">10</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP3</span>ETL &amp; entrepôt</span><span class="wp-desc">Fait « note » (32M lignes, agrégation ou échantillonnage), tables de liaison film ↔ genre et film ↔ personne.</span><span class="wp-pres"><i>En soutenance</i>Modèle en étoile, gestion du volume</span></td><td class="n">8</td><td class="n"><span data-jh="28">28 j/h</span></td><td class="n"><span data-jh="5">5 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="37">37 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:58.33%"></span><span class="s-red" style="width:10.42%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">12</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP4</span>Dashboards</span><span class="wp-desc">Plusieurs tableaux de bord selon les besoins de WP1 : catalogue, tendances, popularité par genre et par époque.</span><span class="wp-pres"><i>En soutenance</i>Démo des tableaux de bord</span></td><td class="n">7</td><td class="n"><span data-jh="22">22 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="30">30 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:45.83%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">10</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP5</span>K-means</span><span class="wp-desc">Segments d'utilisateurs ou familles de films, choix de k, interprétation.</span><span class="wp-pres"><i>En soutenance</i>Segments et leur interprétation</span></td><td class="n">6</td><td class="n"><span data-jh="18">18 j/h</span></td><td class="n"><span data-jh="3">3 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="25">25 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:37.50%"></span><span class="s-red" style="width:6.25%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">8</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP6</span>Arbres de décision</span><span class="wp-desc">« Film bien noté ? », élagage, variables déterminantes. Rentabilité en sous-étude, faute de données complètes.</span><span class="wp-pres"><i>En soutenance</i>Modèle, évaluation, limites des données</span></td><td class="n">6</td><td class="n"><span data-jh="18">18 j/h</span></td><td class="n"><span data-jh="3">3 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="25">25 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:37.50%"></span><span class="s-red" style="width:6.25%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">8</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP7</span>K-NN, recommandation &amp; comparaison</span><span class="wp-desc">Même cible que les arbres, puis recommandation par plus proches voisins. Chapitre de comparaison des 3 méthodes.</span><span class="wp-pres"><i>En soutenance</i>K-NN, démo de recommandation, comparaison</span></td><td class="n">8</td><td class="n"><span data-jh="26">26 j/h</span></td><td class="n"><span data-jh="5">5 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><b><span data-jh="35">35 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:54.17%"></span><span class="s-red" style="width:10.42%"></span><span class="s-sout" style="width:8.33%"></span></div></td><td class="n">12</td></tr><tr><td><span class="wp-name"><span class="wp-code">WP0</span>Pilotage &amp; qualité</span><span class="wp-desc">Organigramme, Gantt, comité de pilotage, risques. Adjoint PMO et contrôle des temps, cellule de rédaction, gabarit commun, relecture anglaise.</span><span class="wp-pres"><i>En soutenance</i>Présentation globale, puis bilan prévu / réel</span></td><td class="n">5</td><td class="n"><span data-jh="20">20 j/h</span></td><td class="n"><span data-jh="4">4 j/h</span></td><td class="n"><span data-jh="6">6 j/h</span></td><td class="n"><b><span data-jh="30">30 j/h</span></b><div class="bar" aria-hidden="true"><span class="s-real" style="width:41.67%"></span><span class="s-red" style="width:8.33%"></span><span class="s-sout" style="width:12.50%"></span></div></td><td class="n">10</td></tr></tbody><tfoot><tr><td>Total</td><td class="n">54</td><td class="n"><span data-jh="174">174 j/h</span></td><td class="n"><span data-jh="32">32 j/h</span></td><td class="n"><span data-jh="34">34 j/h</span></td><td class="n"><span data-jh="240">240 j/h</span></td><td class="n">80</td></tr></tfoot></table></div><p class="legend">Soit environ&nbsp;<b class="mono">4,4&nbsp;j/h</b>&nbsp;par étudiant.</p></div><div class="timeline-box"><h3>Points de vigilance</h3><ul class="watch"><li>L'unité d'analyse pour le data mining est le film (environ 87 000, au-dessus des 50 000 exigés), pas la note.</li><li>Budget et recettes sont vides pour la plupart des films : la rentabilité ne peut être qu'une sous-étude, à présenter comme une limite.</li><li>Charger 32 millions de notes dans PostgreSQL et Power BI demande d'agréger ou d'échantillonner dès la modélisation.</li></ul></div></article></section></div>
+  <div id="dossiers"></div>
 
   <section id="regles">
     <div class="section-head">
@@ -431,7 +405,7 @@ img { max-width: 100%; }
         <li>Faire la présentation globale de 20 minutes et coordonner les répétitions</li>
       </ul>
       <div class="facts" style="grid-template-columns:1fr">
-        <div class="fact"><b class="mono" data-jh="13.5">13,5 j/h</b><span>de charge estimée pour le chef de projet, comptés dans WP0. Environ 8 à 9 heures par semaine.</span></div>
+        <div class="fact"><b class="mono" data-jh="13.5"></b><span>de charge estimée pour le chef de projet, comptés dans WP0. Environ 8 à 9 heures par semaine.</span></div>
       </div>
     </div>
   </section>
@@ -442,8 +416,8 @@ img { max-width: 100%; }
       <h2>Prochaines étapes</h2>
     </div>
     <ol class="steps">
-      <li><div>Voter pour le sujet<span>Entre A, B et C, après lecture de ce document.</span></div></li>
-      <li><div>Désigner les chefs de WP<span>Sur les compétences, puis répartition des membres ACSI et SID selon les effectifs prévus.</span></div></li>
+      <li><div>Remplir le formulaire de vœux<span>Avant le mardi 20 octobre à 20 h. Le lien est partagé sur Discord.</span></div></li>
+      <li><div>Désigner les chefs de WP et répartir les équipes<span>Mercredi 21 octobre : chefs choisis sur les compétences, puis répartition des membres ACSI et SID selon les vœux et les effectifs prévus.</span></div></li>
       <li><div>Publier l'organigramme et le Gantt v1<span>Jalon de lancement, vendredi 23 octobre.</span></div></li>
       <li><div>Ouvrir l'outil de suivi<span>Créer les WP et leurs budgets d'heures dans GestionBi, et commencer la saisie des temps.</span></div></li>
       <li><div>Affiner les charges<span>Chaque chef de WP découpe son WP en tâches estimées. Les chiffres de ce document servent de point de départ.</span></div></li>
@@ -452,7 +426,7 @@ img { max-width: 100%; }
     <h3>Questions ouvertes, à poser au prof</h3>
     <ul class="questions">
       <li>Le format de soutenance (20 min globales, puis 20 min par WP) est-il confirmé ?</li>
-      <li>Chaque étudiant doit-il prendre la parole ? Avec 6 à 8 personnes par WP, ça laisse moins de 3 minutes chacun.</li>
+      <li>Chaque étudiant doit-il prendre la parole ? Avec 5 à 8 personnes par WP, ça laisse moins de 3 minutes chacun.</li>
       <li>Les questions du jury sont-elles comprises dans les 20 minutes de chaque WP ?</li>
     </ul>
   </section>
@@ -461,17 +435,14 @@ img { max-width: 100%; }
     <div class="eyebrow">Sources des données</div>
     <ul>
       <li><a href="https://www.data.gouv.fr/datasets/53698f4ca3a729239d2036df/" target="_blank" rel="noopener noreferrer">Accidents corporels de la circulation 2005-2024 (data.gouv.fr)</a></li>
-      <li><a href="https://www.data.gouv.fr/datasets/dpe-logements-existants-depuis-juillet-2021/" target="_blank" rel="noopener noreferrer">DPE logements existants depuis juillet 2021 (ADEME, data.gouv.fr)</a></li>
-      <li><a href="https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres/" target="_blank" rel="noopener noreferrer">Demandes de valeurs foncières (DGFiP, data.gouv.fr)</a></li>
-      <li><a href="https://grouplens.org/datasets/movielens/32m/" target="_blank" rel="noopener noreferrer">MovieLens 32M (GroupLens)</a></li>
-      <li><a href="https://developer.themoviedb.org/docs/getting-started" target="_blank" rel="noopener noreferrer">API The Movie Database (TMDB)</a></li>
+      <li><a href="https://www.onisr.securite-routiere.gouv.fr/sites/default/files/2025-10/Description%20des%20bases%20de%20donn%C3%A9es%20annuelles%20en-EN.pdf" target="_blank" rel="noopener noreferrer">Description of the annual road accident databases, in English (ONISR)</a></li>
     </ul>
   </footer>
 </div>
 
 <script>
 (function () {
-  var CAPACITY = 270;
+  var CAPACITY = 290;
   var unit = "jh";
 
   // [code, nom, personnes, réalisation, rédaction, soutenance, pages, contenu, présenté en soutenance]
@@ -489,12 +460,12 @@ img { max-width: 100%; }
         ["Data mining", "K-means : profils et zones d'accidents. Arbres et K-NN : prédire la gravité, sur la même cible."]
       ],
       wps: [
-        ["WP1", "Business & gouvernance", 6, 16, 4, 4, 10, "Persona préfecture ou assureur, KPIs, besoins des tableaux de bord. RGPD, données masquées, biais.", "Besoin du décideur, KPIs, cadre éthique"],
+        ["WP1", "Business & gouvernance", 7, 16, 4, 4, 10, "Persona préfecture ou assureur, KPIs, besoins des tableaux de bord. RGPD, données masquées, biais.", "Besoin du décideur, KPIs, cadre éthique"],
         ["WP2", "Données & qualité", 8, 26, 4, 4, 10, "Collecte, harmonisation des formats avant et après 2019, rupture de série 2018, codifications, extrait nettoyé.", "Sources, profilage, nettoyage avant / après"],
         ["WP3", "ETL & entrepôt", 8, 28, 5, 4, 12, "Schéma en étoile : fait « usager impliqué », dimensions lieu, temps, véhicule, conditions. Enrichissement INSEE.", "Modèle en étoile, pipeline, choix techniques"],
-        ["WP4", "Dashboards", 7, 24, 4, 4, 10, "Plusieurs tableaux de bord Power BI selon les besoins de WP1 : cartes, tendances, storytelling.", "Démo des tableaux de bord"],
-        ["WP5", "K-means", 6, 18, 3, 4, 8, "Profils d'accidents et zones à risque, choix de k (coude, silhouette), interprétation.", "Segments et leur interprétation"],
-        ["WP6", "Arbres de décision", 6, 18, 3, 4, 8, "Prédire la gravité, élagage, classes très déséquilibrées (les tués sont rares), variables déterminantes.", "Modèle, évaluation, facteurs aggravants"],
+        ["WP4", "Dashboards", 8, 24, 4, 4, 10, "Plusieurs tableaux de bord Power BI selon les besoins de WP1 : cartes, tendances, storytelling.", "Démo des tableaux de bord"],
+        ["WP5", "K-means", 7, 18, 3, 4, 8, "Profils d'accidents et zones à risque, choix de k (coude, silhouette), interprétation.", "Segments et leur interprétation"],
+        ["WP6", "Arbres de décision", 7, 18, 3, 4, 8, "Prédire la gravité, élagage, classes très déséquilibrées (les tués sont rares), variables déterminantes.", "Modèle, évaluation, facteurs aggravants"],
         ["WP7", "K-NN & comparaison", 8, 24, 5, 4, 12, "Même cible que les arbres, encodage des variables, échantillonnage, choix de k et de la distance. Chapitre de comparaison des 3 méthodes.", "K-NN, puis comparaison des trois méthodes"],
         WP0_STD
       ],
@@ -502,59 +473,6 @@ img { max-width: 100%; }
         "Harmoniser les formats avant et après 2019 prend du temps. Limiter l'étude à 2019-2024 suffit largement pour dépasser 50 000 enregistrements.",
         "La classification des blessés hospitalisés depuis 2018 n'est pas comparable aux années précédentes : à documenter, c'est un bon point en soutenance.",
         "K-NN se comporte mal sur des variables surtout catégorielles et sur des millions de lignes : il faudra encoder et échantillonner."
-      ]
-    },
-    {
-      id: "sujet-b", letter: "B", name: "Passoires thermiques",
-      question: "Un mauvais DPE fait-il baisser le prix d'un logement ?",
-      feas: ["★★☆", "p-warn"], risk: ["Élevé", "p-bad"],
-      critical: "WP3 : apparier DPE et transactions",
-      spec: [
-        ["Décideur", "Banque (prêts verts) ou collectivité (plan de rénovation)"],
-        ["Données", "Base DPE de l'ADEME (depuis juillet 2021, mise à jour mensuelle) et DVF (transactions des 5 dernières années, hors Alsace, Moselle et Mayotte). Des millions de lignes."],
-        ["Data mining", "K-means : typologie des logements et des territoires. Arbres et K-NN : prédire la classe DPE, sur la même cible."]
-      ],
-      wps: [
-        ["WP1", "Business & gouvernance", 5, 14, 3, 4, 8, "Persona banque ou collectivité, calendrier d'interdiction de location des passoires, besoins des tableaux de bord. Qualité des sources, licences, éthique.", "Besoin du décideur, cadre réglementaire"],
-        ["WP2", "Données & qualité", 6, 24, 3, 4, 8, "Volumétrie, valeurs aberrantes DVF, ventes multi-lots, DPE jamais corrigés par l'ADEME.", "Sources, profilage, nettoyage"],
-        ["WP3", "Appariement DPE ↔ DVF", 7, 40, 4, 4, 10, "Croisement par adresse ou géolocalisation, mesure du taux d'appariement, périmètre géographique restreint.", "Méthode d'appariement et sa fiabilité"],
-        ["WP4", "ETL & entrepôt", 6, 22, 3, 4, 8, "Schéma en étoile : fait « transaction », dimensions logement, DPE, commune, temps.", "Modèle en étoile, pipeline"],
-        ["WP5", "Dashboards & décote", 7, 22, 4, 4, 10, "Plusieurs tableaux de bord selon les besoins de WP1 : cartes des prix et des passoires, décote de prix par classe DPE.", "Démo, et combien coûte un mauvais DPE"],
-        ["WP6", "K-means", 6, 16, 3, 4, 7, "Typologie des logements et des territoires, choix de k, interprétation.", "Segments et leur interprétation"],
-        ["WP7", "Arbres de décision", 6, 16, 3, 4, 7, "Prédire la classe DPE, élagage, variables déterminantes.", "Modèle et variables déterminantes"],
-        ["WP8", "K-NN & comparaison", 6, 22, 5, 4, 12, "Même cible que les arbres, variables numériques (surface, année, consommation). Chapitre de comparaison des 3 méthodes.", "K-NN, puis comparaison des trois méthodes"],
-        ["WP0", "Pilotage & qualité", 5, 22, 4, 6, 10, "Organigramme, Gantt, suivi serré du chemin critique, décision go / no-go sur l'appariement le 6 novembre, cellule de rédaction.", "Présentation globale, puis bilan prévu / réel"]
-      ],
-      watch: [
-        "L'appariement bloque tout le reste. Décision go / no-go au jalon du 6 novembre : si le taux est mauvais, on bascule sur un autre sujet tant qu'il est encore temps.",
-        "Restreindre le périmètre dès le départ (quelques départements du Grand Est). La Moselle n'est pas couverte par DVF.",
-        "Marge quasi nulle : le moindre retard oblige à réduire le périmètre."
-      ]
-    },
-    {
-      id: "sujet-c", letter: "C", name: "Streaming",
-      question: "Quels films une plateforme de streaming devrait-elle acquérir et recommander ?",
-      feas: ["★★★", "p-ok"], risk: ["Moyen", "p-warn"],
-      critical: "WP3 : volumétrie de 32M de notes",
-      spec: [
-        ["Décideur", "Direction des contenus d'une plateforme"],
-        ["Données", "MovieLens 32M (32 millions de notes, 87 585 films, 200 948 utilisateurs) enrichi par l'API TMDB, jointure directe grâce aux identifiants fournis."],
-        ["Data mining", "K-means : segments d'utilisateurs ou familles de films. Arbres et K-NN : prédire si un film sera bien noté. K-NN sert aussi naturellement à la recommandation."]
-      ],
-      wps: [
-        ["WP1", "Business & gouvernance", 6, 16, 4, 4, 10, "Persona direction des contenus, KPIs d'acquisition, besoins des tableaux de bord. Conditions TMDB (attribution, conservation 6 mois max), licence MovieLens, biais de popularité.", "Besoin du décideur, cadre légal et éthique"],
-        ["WP2", "Données & qualité", 8, 26, 4, 4, 10, "Téléchargement MovieLens, script de collecte via l'API TMDB (environ 87k films, casting, mots-clés), stockage, qualité.", "Sources, collecte, nettoyage"],
-        ["WP3", "ETL & entrepôt", 8, 28, 5, 4, 12, "Fait « note » (32M lignes, agrégation ou échantillonnage), tables de liaison film ↔ genre et film ↔ personne.", "Modèle en étoile, gestion du volume"],
-        ["WP4", "Dashboards", 7, 22, 4, 4, 10, "Plusieurs tableaux de bord selon les besoins de WP1 : catalogue, tendances, popularité par genre et par époque.", "Démo des tableaux de bord"],
-        ["WP5", "K-means", 6, 18, 3, 4, 8, "Segments d'utilisateurs ou familles de films, choix de k, interprétation.", "Segments et leur interprétation"],
-        ["WP6", "Arbres de décision", 6, 18, 3, 4, 8, "« Film bien noté ? », élagage, variables déterminantes. Rentabilité en sous-étude, faute de données complètes.", "Modèle, évaluation, limites des données"],
-        ["WP7", "K-NN, recommandation & comparaison", 8, 26, 5, 4, 12, "Même cible que les arbres, puis recommandation par plus proches voisins. Chapitre de comparaison des 3 méthodes.", "K-NN, démo de recommandation, comparaison"],
-        WP0_STD
-      ],
-      watch: [
-        "L'unité d'analyse pour le data mining est le film (environ 87 000, au-dessus des 50 000 exigés), pas la note.",
-        "Budget et recettes sont vides pour la plupart des films : la rentabilité ne peut être qu'une sous-étude, à présenter comme une limite.",
-        "Charger 32 millions de notes dans PostgreSQL et Power BI demande d'agréger ou d'échantillonner dès la modélisation."
       ]
     }
   ];
@@ -589,7 +507,7 @@ img { max-width: 100%; }
     ["Soutenance", "Tous", [[d(2026, 12, 14), d(2026, 12, 19), "sout"], [d(2027, 1, 4), d(2027, 1, 8), "sout"]]]
   ];
   var MILESTONES = [
-    ["M1", d(2026, 10, 23), "ven. 23/10", "Lancement : chefs de WP nommés, organigramme et Gantt v1, sujet voté"],
+    ["M1", d(2026, 10, 23), "ven. 23/10", "Lancement : chefs de WP nommés, organigramme et Gantt v1"],
     ["M2", d(2026, 11, 6), "ven. 06/11", "Données collectées, extrait nettoyé livré aux WP d'analyse, protocole commun de data mining fixé"],
     ["M3", d(2026, 11, 27), "ven. 27/11", "Entrepôt en étoile chargé"],
     ["M4", d(2026, 12, 11), "ven. 11/12", "Tableaux de bord et modèles v1, résultats de la comparaison"],
@@ -627,21 +545,6 @@ img { max-width: 100%; }
     return '<tr><td class="mono">' + m[0] + '</td><td class="mono" style="white-space:nowrap">' + m[2] + "</td><td>" + esc(m[3]) + "</td></tr>";
   }).join("");
 
-  // Comparatif
-  document.getElementById("compare-body").innerHTML = SUBJECTS.map(function (s) {
-    var tt = totals(s), margin = CAPACITY - tt.all, mins = 20 + 20 * s.wps.length;
-    return "<tr>" +
-      '<td><a href="#' + s.id + '"><b>' + s.letter + " · " + esc(s.name) + '</b></a><br><span class="muted" style="font-size:.85rem">' + esc(s.question) + "</span></td>" +
-      '<td><span class="pill ' + s.feas[1] + '">' + s.feas[0] + "</span></td>" +
-      '<td><span class="pill ' + s.risk[1] + '">' + s.risk[0] + "</span></td>" +
-      '<td class="n">' + s.wps.length + "</td>" +
-      '<td class="n">' + mins + " min</td>" +
-      '<td class="n">' + num(tt.all) + "</td>" +
-      '<td class="n"><span class="pill ' + marginClass(margin) + '">' + signed(margin) + "</span></td>" +
-      "<td>" + esc(s.critical) + "</td>" +
-      "</tr>";
-  }).join("");
-
   // Dossiers
   var maxTotal = 0;
   SUBJECTS.forEach(function (s) { s.wps.forEach(function (w) { maxTotal = Math.max(maxTotal, w[3] + w[4] + w[5]); }); });
@@ -674,7 +577,7 @@ img { max-width: 100%; }
 
     return '<section id="' + s.id + '"><article class="dossier">' +
       '<div class="dossier-head"><div class="letter" aria-hidden="true">' + s.letter + "</div>" +
-        "<h2>Sujet " + s.letter + " · " + esc(s.name) + "</h2>" +
+        "<h2>Sujet retenu · " + esc(s.name) + "</h2>" +
         '<p class="q">' + esc(s.question) + "</p>" +
         '<div class="badges"><span class="pill ' + s.feas[1] + '">Faisabilité ' + s.feas[0] + "</span>" +
         '<span class="pill ' + s.risk[1] + '">Risque ' + s.risk[0].toLowerCase() + "</span>" +
@@ -720,6 +623,5 @@ img { max-width: 100%; }
   render();
 })();
 </script>
-
-
-</body></html>
+</body>
+</html>
