@@ -147,6 +147,7 @@ tfoot td { font-weight: 600; border-top: 2px solid var(--ink); border-bottom: 0;
 .wp-pres i { color: var(--muted); font-style: normal; font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; margin-right: 4px; }
 
 /* Stacked bar */
+.sub { display: block; font-family: var(--f-body); font-size: 0.75rem; color: var(--muted); white-space: nowrap; margin-top: 2px; }
 .bar { display: flex; height: 10px; border-radius: 3px; overflow: hidden; background: var(--bg); min-width: 120px; margin-top: 6px; }
 .bar span { display: block; height: 100%; }
 .s-real { background: var(--seg-real); }
@@ -302,7 +303,7 @@ img { max-width: 100%; }
     <div class="facts">
       <div class="fact"><b class="mono">57</b><span>étudiants : 41 ACSI et 16 SID</span></div>
       <div class="fact"><b class="mono">≥ 50 000</b><span>enregistrements dans le jeu de données</span></div>
-      <div class="fact"><b class="mono">≥ 50 p.</b><span>de rapport en anglais. Cible proposée : 80 pages</span></div>
+      <div class="fact"><b class="mono">≥ 50 p.</b><span>de rapport en anglais. Cible proposée : 60 pages</span></div>
       <div class="fact"><b class="mono">3</b><span>méthodes à comparer : K-means, arbres, K-NN</span></div>
       <div class="fact"><b class="mono">07/01/2027</b><span>soutenance, au dernier cours commun ACSI-SID</span></div>
     </div>
@@ -329,8 +330,9 @@ img { max-width: 100%; }
     <ul class="hyp">
       <li><b>1 j/h = 7 heures</b> de travail d'une personne. Le bouton en haut convertit tous les chiffres en heures.</li>
       <li>Du 14 octobre au 7 janvier, il y a 12 semaines, dont environ 2 de vacances de fin d'année : il reste environ <b>10 semaines utiles</b>. À une demi-journée par semaine, chacun dispose d'environ <b class="mono">5 j/h</b>, soit une capacité de <b class="mono" data-jh="285"></b> pour la promo.</li>
-      <li>Rédaction : environ <b>0,4 j/h par page</b> d'anglais finalisée, pour une cible de <b>80 pages</b>, au-dessus du minimum de 50.</li>
-      <li>Préparation de soutenance : <b>4 j/h par WP</b>, 6 pour le pilotage qui porte aussi la présentation globale.</li>
+      <li>Réalisation : estimations volontairement légères. Les données sont propres et les outils, IA comprise, accélèrent le travail. Le temps réellement passé, lui, se saisit tel quel.</li>
+      <li>Rédaction : environ <b>0,3 j/h par page</b> d'anglais finalisée, pour une cible de <b>60 pages</b>, au-dessus du minimum de 50.</li>
+      <li>Préparation de soutenance : <b>3 j/h par WP</b>, 4 pour le pilotage qui porte aussi la présentation globale.</li>
       <li>Les chiffres sont volontairement ronds. Ils seront affinés avec les chefs de WP une fois le sujet choisi.</li>
     </ul>
   </section>
@@ -373,6 +375,7 @@ img { max-width: 100%; }
             <th class="n">WP</th>
             <th class="n">Soutenance</th>
             <th class="n">Charge</th>
+            <th class="n">Par étudiant</th>
             <th class="n">Marge</th>
             <th>Chemin critique</th>
           </tr>
@@ -434,7 +437,7 @@ img { max-width: 100%; }
         <li>Faire la présentation globale de 20 minutes et coordonner les répétitions</li>
       </ul>
       <div class="facts" style="grid-template-columns:1fr">
-        <div class="fact"><b class="mono" data-jh="13.5"></b><span>de charge estimée pour le chef de projet, comptés dans WP0. Environ 8 à 9 heures par semaine.</span></div>
+        <div class="fact"><b class="mono" data-jh="10"></b><span>de charge estimée pour le chef de projet, comptés dans WP0. Environ 7 heures par semaine.</span></div>
       </div>
     </div>
   </section>
@@ -478,9 +481,15 @@ img { max-width: 100%; }
 (function () {
   var CAPACITY = 285;
   var unit = "jh";
+  var WEEKS = 10, CP_JH = 10;
+  function r1(x) { return Math.round(x * 10) / 10; }
+  function perWeek(jh) {
+    var min = Math.round(jh * 7 / WEEKS * 60 / 5) * 5, h = Math.floor(min / 60), m = min % 60;
+    return "≈ " + h + " h" + (m ? " " + String(m).padStart(2, "0") : "") + " / sem.";
+  }
 
   // [code, nom, personnes, réalisation, rédaction, soutenance, pages, contenu, présenté en soutenance]
-  var WP0_STD = ["WP0", "Pilotage & qualité", 5, 20, 4, 6, 10, "Organigramme, Gantt, comité de pilotage, risques. Adjoint PMO et contrôle des temps, cellule de rédaction, gabarit commun, relecture anglaise.", "Présentation globale, puis bilan prévu / réel"];
+  var WP0_STD = ["WP0", "Pilotage & qualité", 5, 16, 2, 4, 6, "Organigramme, Gantt, comité de pilotage, risques. Adjoint PMO et contrôle des temps, cellule de rédaction, gabarit commun, relecture anglaise.", "Présentation globale, puis bilan prévu / réel"];
 
   var SUBJECTS = [
     {
@@ -494,13 +503,13 @@ img { max-width: 100%; }
         ["Data mining", "K-means : profils et zones d'accidents. Arbres et K-NN : prédire la gravité, sur la même cible."]
       ],
       wps: [
-        ["WP1", "Business & gouvernance", 6, 16, 4, 4, 10, "Persona préfecture ou assureur, KPIs, besoins des tableaux de bord. RGPD, données masquées, biais.", "Besoin du décideur, KPIs, cadre éthique"],
-        ["WP2", "Données & qualité", 8, 26, 4, 4, 10, "Collecte, harmonisation des formats avant et après 2019, rupture de série 2018, codifications, extrait nettoyé.", "Sources, profilage, nettoyage avant / après"],
-        ["WP3", "ETL & entrepôt", 8, 28, 5, 4, 12, "Schéma en étoile : fait « usager impliqué », dimensions lieu, temps, véhicule, conditions. Enrichissement INSEE.", "Modèle en étoile, pipeline, choix techniques"],
-        ["WP4", "Dashboards", 8, 24, 4, 4, 10, "Plusieurs tableaux de bord Power BI selon les besoins de WP1 : cartes, tendances, storytelling.", "Démo des tableaux de bord"],
-        ["WP5", "K-means", 7, 18, 3, 4, 8, "Profils d'accidents et zones à risque, choix de k (coude, silhouette), interprétation.", "Segments et leur interprétation"],
-        ["WP6", "Arbres de décision", 7, 18, 3, 4, 8, "Prédire la gravité, élagage, classes très déséquilibrées (les tués sont rares), variables déterminantes.", "Modèle, évaluation, facteurs aggravants"],
-        ["WP7", "K-NN & comparaison", 8, 24, 5, 4, 12, "Même cible que les arbres, encodage des variables, échantillonnage, choix de k et de la distance. Chapitre de comparaison des 3 méthodes.", "K-NN, puis comparaison des trois méthodes"],
+        ["WP1", "Business & gouvernance", 6, 13, 2.5, 3, 8, "Persona préfecture ou assureur, KPIs, besoins des tableaux de bord. RGPD, données masquées, biais.", "Besoin du décideur, KPIs, cadre éthique"],
+        ["WP2", "Données & qualité", 8, 21, 2.5, 3, 8, "Collecte, harmonisation des formats avant et après 2019, rupture de série 2018, codifications, extrait nettoyé.", "Sources, profilage, nettoyage avant / après"],
+        ["WP3", "ETL & entrepôt", 8, 22, 2.5, 3, 9, "Schéma en étoile : fait « usager impliqué », dimensions lieu, temps, véhicule, conditions. Enrichissement INSEE.", "Modèle en étoile, pipeline, choix techniques"],
+        ["WP4", "Dashboards", 8, 19, 2.5, 3, 8, "Plusieurs tableaux de bord Power BI selon les besoins de WP1 : cartes, tendances, storytelling.", "Démo des tableaux de bord"],
+        ["WP5", "K-means", 7, 14, 2, 3, 6, "Profils d'accidents et zones à risque, choix de k (coude, silhouette), interprétation.", "Segments et leur interprétation"],
+        ["WP6", "Arbres de décision", 7, 14, 2, 3, 6, "Prédire la gravité, élagage, classes très déséquilibrées (les tués sont rares), variables déterminantes.", "Modèle, évaluation, facteurs aggravants"],
+        ["WP7", "K-NN & comparaison", 8, 19, 3, 3, 9, "Même cible que les arbres, encodage des variables, échantillonnage, choix de k et de la distance. Chapitre de comparaison des 3 méthodes.", "K-NN, puis comparaison des trois méthodes"],
         WP0_STD
       ],
       watch: [
@@ -520,15 +529,15 @@ img { max-width: 100%; }
         ["Data mining", "K-means : typologie des logements et des territoires. Arbres et K-NN : prédire la classe DPE, sur la même cible."]
       ],
       wps: [
-        ["WP1", "Business & gouvernance", 5, 14, 3, 4, 8, "Persona banque ou collectivité, calendrier d'interdiction de location des passoires, besoins des tableaux de bord. Qualité des sources, licences, éthique.", "Besoin du décideur, cadre réglementaire"],
-        ["WP2", "Données & qualité", 6, 24, 3, 4, 8, "Volumétrie, valeurs aberrantes DVF, ventes multi-lots, DPE jamais corrigés par l'ADEME.", "Sources, profilage, nettoyage"],
-        ["WP3", "Appariement DPE ↔ DVF", 8, 40, 4, 4, 10, "Croisement par adresse ou géolocalisation, mesure du taux d'appariement, périmètre géographique restreint.", "Méthode d'appariement et sa fiabilité"],
-        ["WP4", "ETL & entrepôt", 6, 22, 3, 4, 8, "Schéma en étoile : fait « transaction », dimensions logement, DPE, commune, temps.", "Modèle en étoile, pipeline"],
-        ["WP5", "Dashboards & décote", 8, 22, 4, 4, 10, "Plusieurs tableaux de bord selon les besoins de WP1 : cartes des prix et des passoires, décote de prix par classe DPE.", "Démo, et combien coûte un mauvais DPE"],
-        ["WP6", "K-means", 7, 16, 3, 4, 7, "Typologie des logements et des territoires, choix de k, interprétation.", "Segments et leur interprétation"],
-        ["WP7", "Arbres de décision", 6, 16, 3, 4, 7, "Prédire la classe DPE, élagage, variables déterminantes.", "Modèle et variables déterminantes"],
-        ["WP8", "K-NN & comparaison", 6, 22, 5, 4, 12, "Même cible que les arbres, variables numériques (surface, année, consommation). Chapitre de comparaison des 3 méthodes.", "K-NN, puis comparaison des trois méthodes"],
-        ["WP0", "Pilotage & qualité", 5, 22, 4, 6, 10, "Organigramme, Gantt, suivi serré du chemin critique, décision go / no-go sur l'appariement le 6 novembre, cellule de rédaction.", "Présentation globale, puis bilan prévu / réel"]
+        ["WP1", "Business & gouvernance", 5, 11, 2, 3, 6, "Persona banque ou collectivité, calendrier d'interdiction de location des passoires, besoins des tableaux de bord. Qualité des sources, licences, éthique.", "Besoin du décideur, cadre réglementaire"],
+        ["WP2", "Données & qualité", 6, 19, 2, 3, 6, "Volumétrie, valeurs aberrantes DVF, ventes multi-lots, DPE jamais corrigés par l'ADEME.", "Sources, profilage, nettoyage"],
+        ["WP3", "Appariement DPE ↔ DVF", 8, 32, 2.5, 3, 8, "Croisement par adresse ou géolocalisation, mesure du taux d'appariement, périmètre géographique restreint.", "Méthode d'appariement et sa fiabilité"],
+        ["WP4", "ETL & entrepôt", 6, 18, 2, 3, 6, "Schéma en étoile : fait « transaction », dimensions logement, DPE, commune, temps.", "Modèle en étoile, pipeline"],
+        ["WP5", "Dashboards & décote", 8, 18, 2.5, 3, 8, "Plusieurs tableaux de bord selon les besoins de WP1 : cartes des prix et des passoires, décote de prix par classe DPE.", "Démo, et combien coûte un mauvais DPE"],
+        ["WP6", "K-means", 7, 13, 2, 3, 6, "Typologie des logements et des territoires, choix de k, interprétation.", "Segments et leur interprétation"],
+        ["WP7", "Arbres de décision", 6, 13, 2, 3, 6, "Prédire la classe DPE, élagage, variables déterminantes.", "Modèle et variables déterminantes"],
+        ["WP8", "K-NN & comparaison", 6, 18, 2.5, 3, 8, "Même cible que les arbres, variables numériques (surface, année, consommation). Chapitre de comparaison des 3 méthodes.", "K-NN, puis comparaison des trois méthodes"],
+        ["WP0", "Pilotage & qualité", 5, 18, 2, 4, 6, "Organigramme, Gantt, suivi serré du chemin critique, décision go / no-go sur l'appariement le 6 novembre, cellule de rédaction.", "Présentation globale, puis bilan prévu / réel"]
       ],
       watch: [
         "L'appariement bloque tout le reste. Décision go / no-go au jalon du 6 novembre : si le taux est mauvais, on bascule sur un autre sujet tant qu'il est encore temps.",
@@ -547,13 +556,13 @@ img { max-width: 100%; }
         ["Data mining", "K-means : segments d'utilisateurs ou familles de films. Arbres et K-NN : prédire si un film sera bien noté. K-NN sert aussi naturellement à la recommandation."]
       ],
       wps: [
-        ["WP1", "Business & gouvernance", 6, 16, 4, 4, 10, "Persona direction des contenus, KPIs d'acquisition, besoins des tableaux de bord. Conditions TMDB (attribution, conservation 6 mois max), licence MovieLens, biais de popularité.", "Besoin du décideur, cadre légal et éthique"],
-        ["WP2", "Données & qualité", 8, 26, 4, 4, 10, "Téléchargement MovieLens, script de collecte via l'API TMDB (environ 87k films, casting, mots-clés), stockage, qualité.", "Sources, collecte, nettoyage"],
-        ["WP3", "ETL & entrepôt", 8, 28, 5, 4, 12, "Fait « note » (32M lignes, agrégation ou échantillonnage), tables de liaison film ↔ genre et film ↔ personne.", "Modèle en étoile, gestion du volume"],
-        ["WP4", "Dashboards", 8, 22, 4, 4, 10, "Plusieurs tableaux de bord selon les besoins de WP1 : catalogue, tendances, popularité par genre et par époque.", "Démo des tableaux de bord"],
-        ["WP5", "K-means", 7, 18, 3, 4, 8, "Segments d'utilisateurs ou familles de films, choix de k, interprétation.", "Segments et leur interprétation"],
-        ["WP6", "Arbres de décision", 7, 18, 3, 4, 8, "« Film bien noté ? », élagage, variables déterminantes. Rentabilité en sous-étude, faute de données complètes.", "Modèle, évaluation, limites des données"],
-        ["WP7", "K-NN, recommandation & comparaison", 8, 26, 5, 4, 12, "Même cible que les arbres, puis recommandation par plus proches voisins. Chapitre de comparaison des 3 méthodes.", "K-NN, démo de recommandation, comparaison"],
+        ["WP1", "Business & gouvernance", 6, 13, 2.5, 3, 8, "Persona direction des contenus, KPIs d'acquisition, besoins des tableaux de bord. Conditions TMDB (attribution, conservation 6 mois max), licence MovieLens, biais de popularité.", "Besoin du décideur, cadre légal et éthique"],
+        ["WP2", "Données & qualité", 8, 21, 2.5, 3, 8, "Téléchargement MovieLens, script de collecte via l'API TMDB (environ 87k films, casting, mots-clés), stockage, qualité.", "Sources, collecte, nettoyage"],
+        ["WP3", "ETL & entrepôt", 8, 22, 2.5, 3, 9, "Fait « note » (32M lignes, agrégation ou échantillonnage), tables de liaison film ↔ genre et film ↔ personne.", "Modèle en étoile, gestion du volume"],
+        ["WP4", "Dashboards", 8, 18, 2.5, 3, 8, "Plusieurs tableaux de bord selon les besoins de WP1 : catalogue, tendances, popularité par genre et par époque.", "Démo des tableaux de bord"],
+        ["WP5", "K-means", 7, 14, 2, 3, 6, "Segments d'utilisateurs ou familles de films, choix de k, interprétation.", "Segments et leur interprétation"],
+        ["WP6", "Arbres de décision", 7, 14, 2, 3, 6, "« Film bien noté ? », élagage, variables déterminantes. Rentabilité en sous-étude, faute de données complètes.", "Modèle, évaluation, limites des données"],
+        ["WP7", "K-NN, recommandation & comparaison", 8, 21, 3, 3, 9, "Même cible que les arbres, puis recommandation par plus proches voisins. Chapitre de comparaison des 3 méthodes.", "K-NN, démo de recommandation, comparaison"],
         WP0_STD
       ],
       watch: [
@@ -642,6 +651,7 @@ img { max-width: 100%; }
       '<td class="n">' + s.wps.length + "</td>" +
       '<td class="n">' + mins + " min</td>" +
       '<td class="n">' + num(tt.all) + "</td>" +
+      '<td class="n">' + num(r1(tt.all / tt.p)) + '<span class="sub">' + perWeek(tt.all / tt.p) + "</span></td>" +
       '<td class="n"><span class="pill ' + marginClass(margin) + '">' + signed(margin) + "</span></td>" +
       "<td>" + esc(s.critical) + "</td>" +
       "</tr>";
@@ -661,6 +671,8 @@ img { max-width: 100%; }
 
     var rows = s.wps.map(function (w) {
       var tot = w[3] + w[4] + w[5];
+      var isPilot = w[0] === "WP0";
+      var pp = isPilot ? (tot - CP_JH) / (w[2] - 1) : tot / w[2];
       return "<tr>" +
         '<td><span class="wp-name"><span class="wp-code">' + w[0] + "</span>" + esc(w[1]) + "</span>" +
         '<span class="wp-desc">' + esc(w[7]) + "</span>" +
@@ -673,6 +685,7 @@ img { max-width: 100%; }
           '<span class="s-real" style="width:' + pct(w[3]) + '"></span>' +
           '<span class="s-red" style="width:' + pct(w[4]) + '"></span>' +
           '<span class="s-sout" style="width:' + pct(w[5]) + '"></span></div></td>' +
+        '<td class="n">' + num(r1(pp)) + '<span class="sub">' + perWeek(pp) + (isPilot ? "<br>hors chef de projet" : "") + "</span></td>" +
         '<td class="n">' + w[6] + "</td>" +
         "</tr>";
     }).join("");
@@ -690,7 +703,7 @@ img { max-width: 100%; }
       '<div class="timeline-box"><h3>Work packages et charges prévisionnelles</h3>' +
         '<div class="legend"><span><i class="s-real"></i>Réalisation</span><span><i class="s-red"></i>Rédaction</span><span><i class="s-sout"></i>Préparation soutenance</span></div>' +
         '<div class="table-scroll"><table class="wp-table"><thead><tr>' +
-          '<th>Work package (ordre de passage)</th><th class="n">Pers.</th><th class="n">Réalisation</th><th class="n">Rédaction</th><th class="n">Soutenance</th><th class="n">Total</th><th class="n">Pages</th>' +
+          '<th>Work package (ordre de passage)</th><th class="n">Pers.</th><th class="n">Réalisation</th><th class="n">Rédaction</th><th class="n">Soutenance</th><th class="n">Total</th><th class="n">Par personne</th><th class="n">Pages</th>' +
         "</tr></thead><tbody>" + rows + "</tbody>" +
         "<tfoot><tr><td>Total</td>" +
           '<td class="n">' + tt.p + "</td>" +
@@ -698,8 +711,9 @@ img { max-width: 100%; }
           '<td class="n">' + num(tt.w) + "</td>" +
           '<td class="n">' + num(tt.o) + "</td>" +
           '<td class="n">' + num(tt.all) + "</td>" +
+          '<td class="n">' + num(r1(tt.all / tt.p)) + '<span class="sub">' + perWeek(tt.all / tt.p) + "</span></td>" +
           '<td class="n">' + tt.pages + "</td></tr></tfoot></table></div>" +
-        '<p class="legend">Soit environ&nbsp;<b class="mono">' + (tt.all / tt.p).toFixed(1).replace(".", ",") + "&nbsp;j/h</b>&nbsp;par étudiant.</p></div>" +
+        '<p class="legend">En moyenne, environ&nbsp;<b class="mono">' + Math.round(tt.all / tt.p * 7) + "&nbsp;h</b>&nbsp;par étudiant sur tout le projet, rédaction et soutenance comprises, soit&nbsp;" + perWeek(tt.all / tt.p).replace("≈ ", "") + " Seul le chef de projet en a nettement plus&nbsp;: " + '<b class="mono">' + num(CP_JH) + "</b>.</p></div>" +
       '<div class="timeline-box"><h3>Points de vigilance</h3><ul class="watch">' +
         s.watch.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div>" +
       "</article></section>";
